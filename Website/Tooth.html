@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <title>Dental Chart</title>
+  <style>
+    
+    .mouth {
+      width: 1200px;
+      height: 1000px;
+      background-color: #4195f0;
+      border-radius: 50% / 20%;
+      position: relative;
+      margin: 0 auto;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .tooth, .add-tooth {
+      position: absolute;
+      width: 60px;
+      height: 70px;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 50% 50% 20% 20%;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      user-select: none;
+    }
+
+    .add-tooth {
+      background-color: #f0ad4e;
+      color: #fff;
+    }
+    
+    .removed {
+      background-color: #8e8b8b;
+    }
+    
+    /* Upper Teeth */
+    .tooth[data-tooth="1"] { top: 120px; left: 100px; }
+    .tooth[data-tooth="2"] { top: 130px; left: 160px; }
+    .tooth[data-tooth="3"] { top: 140px; left: 220px; }
+    .tooth[data-tooth="4"] { top: 150px; left: 280px; }
+    .tooth[data-tooth="5"] { top: 160px; left: 340px; }
+    .tooth[data-tooth="6"] { top: 170px; left: 400px; }
+    .tooth[data-tooth="7"] { top: 180px; left: 460px; }
+    .tooth[data-tooth="8"] { top: 190px; left: 520px; }
+    .tooth[data-tooth="9"] { top: 200px; left: 580px; }
+    .tooth[data-tooth="10"] { top: 200px; left: 640px; }
+    .tooth[data-tooth="11"] { top: 190px; left: 700px; }
+    .tooth[data-tooth="12"] { top: 180px; left: 760px; }
+    .tooth[data-tooth="13"] { top: 170px; left: 820px; }
+    .tooth[data-tooth="14"] { top: 160px; left: 880px; }
+    .tooth[data-tooth="15"] { top: 150px; left: 940px; }
+    .tooth[data-tooth="16"] { top: 140px; left: 1000px; }
+    .add-tooth[data-type="upper"] { top: 100px; left: 1060px; }
+
+    /* Lower Teeth */
+    .tooth[data-tooth="17"] { top: 700px; left: 100px; }
+    .tooth[data-tooth="18"] { top: 710px; left: 160px; }
+    .tooth[data-tooth="19"] { top: 720px; left: 220px; }
+    .tooth[data-tooth="20"] { top: 730px; left: 280px; }
+    .tooth[data-tooth="21"] { top: 740px; left: 340px; }
+    .tooth[data-tooth="22"] { top: 750px; left: 400px; }
+    .tooth[data-tooth="23"] { top: 760px; left: 460px; }
+    .tooth[data-tooth="24"] { top: 770px; left: 520px; }
+    .tooth[data-tooth="25"] { top: 770px; left: 580px; }
+    .tooth[data-tooth="26"] { top: 760px; left: 640px; }
+    .tooth[data-tooth="27"] { top: 750px; left: 700px; }
+    .tooth[data-tooth="28"] { top: 740px; left: 760px; }
+    .tooth[data-tooth="29"] { top: 730px; left: 820px; }
+    .tooth[data-tooth="30"] { top: 720px; left: 880px; }
+    .tooth[data-tooth="31"] { top: 710px; left: 940px; }
+    .tooth[data-tooth="32"] { top: 700px; left: 1000px; }
+    .add-tooth[data-type="lower"] { top: 680px; left: 1060px; }
+  </style>
+</head>
+<body>
+    <h2 class="text-center">Tooth Chart</h2>
+    <div class="mouth">
+
+      <!-- Upper Teeth -->
+      <div class="text-center"><h3>Upper Teeth</h3></div>
+      <div class="tooth" data-tooth="1">1</div>
+      <div class="tooth" data-tooth="2">2</div>
+      <div class="tooth" data-tooth="3">3</div>
+      <div class="tooth" data-tooth="4">4</div>
+      <div class="tooth" data-tooth="5">5</div>
+      <div class="tooth" data-tooth="6">6</div>
+      <div class="tooth" data-tooth="7">7</div>
+      <div class="tooth" data-tooth="8">8</div>
+      <div class="tooth" data-tooth="9">9</div>
+      <div class="tooth" data-tooth="10">10</div>
+      <div class="tooth" data-tooth="11">11</div>
+      <div class="tooth" data-tooth="12">12</div>
+      <div class="tooth" data-tooth="13">13</div>
+      <div class="tooth" data-tooth="14">14</div>
+      <div class="tooth" data-tooth="15">15</div>
+      <div class="tooth" data-tooth="16">16</div>
+      <div class="add-tooth" data-type="upper">+</div>
+
+      <!-- Lower Teeth -->
+      <div class="tooth" data-tooth="17">17</div>
+      <div class="tooth" data-tooth="18">18</div>
+      <div class="tooth" data-tooth="19">19</div>
+      <div class="tooth" data-tooth="20">20</div>
+      <div class="tooth" data-tooth="21">21</div>
+      <div class="tooth" data-tooth="22">22</div>
+      <div class="tooth" data-tooth="23">23</div>
+      <div class="tooth" data-tooth="24">24</div>
+      <div class="tooth" data-tooth="25">25</div>
+      <div class="tooth" data-tooth="26">26</div>
+      <div class="tooth" data-tooth="27">27</div>
+      <div class="tooth" data-tooth="28">28</div>
+      <div class="tooth" data-tooth="29">29</div>
+      <div class="tooth" data-tooth="30">30</div>
+      <div class="tooth" data-tooth="31">31</div>
+      <div class="tooth" data-tooth="32">32</div>
+      <div class="add-tooth" data-type="lower">+</div>
+    </div>
+    <div class="text-center"><h3>Lower Teeth</h3></div>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.tooth').click(function(){
+        $(this).toggleClass('removed');
+      });
+
+      $('.add-tooth').click(function() {
+        let type = $(this).data('type');
+        let teethCount = $(`.tooth[data-tooth][data-type="${type}"]`).length;
+        let newToothNumber = teethCount + 1;
+        $(this).before(`<div class="tooth" data-tooth="${newToothNumber}" data-type="${type}">${newToothNumber}</div>`);
+      });
+    });
+  </script>
+</body>
+</html>

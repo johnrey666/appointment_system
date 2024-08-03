@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Smile Dental Clinic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .background {
+            background-color: rgb(173, 216, 230);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            background-color: #ffffff; /* Solid background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .login-box {
+            background-color: #b2ebf2;
+            padding: 40px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-box img {
+            width: 150px;
+        }
+
+        .login-box h1 {
+            margin: 20px 0;
+        }
+
+        .login-box .input-container {
+            margin: 10px 0;
+            width: 100%;
+            position: relative;
+        }
+
+        .login-box input {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .password-container input {
+            padding-right: 50px;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            user-select: none;
+            font-size: 14px;
+            color: #00795f;
+        }
+
+        .login-box button {
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            background-color: #00795f;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .image-box {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-box img {
+            width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .login-box {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .image-box {
+                padding: 20px;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .image-box img {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="container">
+            <div class="login-box">
+                <img src="C:\Users\tonya\web\Images\logo.png" alt="Creative Smile Dental Clinic" style="height: 75%; width: 75%;">
+                <div class="input-container">
+                    <input type="text" placeholder="Username">
+                </div>
+                <div class="input-container password-container">
+                    <input type="password" placeholder="Password" id="password">
+                    <span class="toggle-password" onclick="togglePassword()">Show</span>
+                </div>
+                <button>Log In</button>
+            </div>
+            <div class="image-box">
+                <img src="C:\Users\tonya\web\Images\login.png" alt="Dentist and patient">
+            </div>
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+            var passwordInput = document.getElementById("password");
+            var toggleButton = document.querySelector(".toggle-password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                toggleButton.textContent = "Hide";
+            } else {
+                passwordInput.type = "password";
+                toggleButton.textContent = "Show";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile - Dental Clinic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #d0e7ff; /* Light blue background */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            position: relative;
+        }
+        .image-upload {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .image-upload input[type="file"] {
+            display: none;
+        }
+        .image-upload label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            object-fit: cover;
+            display: block;
+            margin-top: 10px;
+        }
+        .profile {
+            padding: 10px 0;
+            margin-left: 150px; /* To make space for the image upload button */
+        }
+        .profile h2 {
+            margin: 0;
+            color: #333;
+        }
+        .profile p {
+            margin: 5px 0;
+        }
+        .profile .age {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-upload">
+            <input type="file" id="fileInput" accept="image/*">
+            <label for="fileInput">Insert Image</label>
+            <img id="imagePreview" class="image-preview" src="#" alt="Image Preview" style="display: none;">
+        </div>
+
+        <div class="profile">
+            <h1>Patient Profile</h1>
+            <h2>Juan Dela Cruz</h2>
+            <p class="age">Age: 30</p>
+            <p>Address: Quezon City</p>
+            <p>Contact: 0917-123-4567</p>
+            <p>Last Visit: July 15, 2024</p>
+        </div>
+        
+    </div>
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('imagePreview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        });
+    </script>
+</body>
+</html>

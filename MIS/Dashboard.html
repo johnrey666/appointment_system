@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Smile Dental Clinic</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IconFinder -->
+    <link href="https://www.iconfinder.com/" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(191, 232, 255, 0.8);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            margin: 1em;
+            padding: 5% 0;
+        }
+        .sidebar {
+            background-color: #cce6ff;
+            padding: 30px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            text-align: center; /* Center content inside the sidebar */
+        }
+        .sidebar img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 100px; /* Increased width */
+        }
+        .sidebar button, .sidebar a {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px; /* Adjusted margin */
+            background-color: #4da6ff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            text-align: center;
+            padding-left: 20px;
+            text-decoration: none; /* Added text decoration for anchor tags */
+            display: block; /* Ensures block display for anchor tags */
+        }
+        .header, .sales, .new-patients, .schedule {
+            margin-bottom: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .sales, .new-patients, .schedule {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .schedule {
+            display: grid;
+            flex-wrap: wrap;
+        }
+        .schedule > div {
+            flex: 1 1 100%;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+            .sidebar {
+                width: 20%;
+            }
+            .main-content {
+                width: 75%;
+                margin-left: 5%; /* Add margin to create space between sidebar and main content */
+            }
+            .schedule > div {
+                flex: 1 1 48%;
+                margin-right: 10%;
+            }
+            .schedule > div:last-child {
+                margin-right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container d-flex flex-column flex-md-row">
+        <div></div>
+        <div class="sidebar">
+            <img src="C:\Users\tonya\web\Images\logo.png" width="90" height="90" class="d-inline-block align-top" alt="">
+            <a href="Patients.html">Patients Records</a>
+            <a href="Schedule.html">Schedule</a>
+            <a href="Accounts.html">Accounts</a>
+            <a href="Sales.html">Sales</a>
+            <a href="About.html">About</a>
+        </div>
+        <div class="main-content flex-grow-1">
+            <div class="header">
+                <h1 id="current-date">MONDAY, MAY 6, 2024</h1>
+                <p id="current-time">7:00 AM</p>
+            </div>
+            <div class="sales">
+                <h2>Current Sales</h2>
+                <!-- Add sales data here -->
+            </div>
+            <div class="new-patients">
+                <h2>New Patients</h2>
+                <ul>
+                    <li>John Doe - 9:00 AM</li>
+                    <li>Jane Smith - 10:30 AM</li>
+                    <li>Michael Brown - 1:00 PM</li>
+                    <li>Emily Davis - 2:30 PM</li>
+                    <li>David Wilson - 4:00 PM</li>
+                </ul>
+            </div>
+            <div class="schedule">
+                <div class="today">
+                    <h2>Today's Schedule</h2>
+                    <!-- Add today's schedule here -->
+                </div>
+                <div class="calendar">
+                    <h2>Calendar</h2>
+                    <!-- Add calendar here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Example functions for button clicks
+        document.getElementById('dashboardBtn').addEventListener('click', function() {
+            alert('Dashboard button clicked!');
+            // Replace with actual functionality
+        });
+
+        document.getElementById('patientsBtn').addEventListener('click', function() {
+            alert('Patients Records button clicked!');
+            // Replace with actual functionality
+        });
+
+        document.getElementById('scheduleBtn').addEventListener('click', function() {
+            alert('Schedule button clicked!');
+            // Replace with actual functionality
+        });
+
+        document.getElementById('accountsBtn').addEventListener('click', function() {
+            alert('Accounts button clicked!');
+            // Replace with actual functionality
+        });
+
+        document.getElementById('salesBtn').addEventListener('click', function() {
+            alert('Sales button clicked!');
+            // Replace with actual functionality
+        });
+
+        document.getElementById('aboutBtn').addEventListener('click', function() {
+            alert('About button clicked!');
+            // Replace with actual functionality
+        });
+    </script>
+</body>
+</html>

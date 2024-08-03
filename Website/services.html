@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Smile Dental Clinic</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Extracted colors */
+        body {
+            background-color: #C9F1F4;
+            color: black;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: rgba(191, 232, 255, 0.8);
+        }
+
+        .navbar-nav {
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        .navbar-nav .nav-item .nav-link {
+            margin: 0 10px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #C9F1F4;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        footer svg {
+            margin-right: 5px;
+        }
+
+        /* Styling for Services Section */
+        .services-section {
+            background-color: rgba(191, 232, 255, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .services-section h2 {
+            color: #007bff;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .service-category {
+            margin-bottom: 20px;
+        }
+
+        .service-category h3 {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .card-body p {
+            color: #555;
+        }
+
+        .card-body h5 {
+            margin-top: 10px;
+        }
+
+        .card-body .service-icon {
+            font-size: 40px;
+            color: #007bff;
+        }
+
+        .modal-body p {
+            color: #555;
+        }
+    </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img src="C:\Users\tonya\web\Images\logo.png" width="80" height="80" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Registration.html">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="AboutUs.html">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="LogIn.html">Log In</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Services Section -->
+    <div class="container mt-4 services-section">
+        <h2 class="text-center">Services We Offer:</h2>
+
+        <!-- Restorative Services -->
+        <div class="service-category">
+            <h3>Restorative:</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-title="Tooth Filling" data-description="A procedure to restore a decayed tooth to its normal shape and function.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-tooth service-icon"></i>
+                            <h5 class="card-title">Tooth Filling</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Inlay / Onlay" data-description="A restorative treatment used to repair moderately damaged teeth or fillings.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-tooth service-icon"></i>
+                            <h5 class="card-title">Inlay / Onlay</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Endodontics Services -->
+        <div class="service-category">
+            <h3>Endodontics:</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-title="Root Canal Treatment" data-description="A treatment to remove infected pulp from inside the tooth and seal it to prevent further infection.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-syringe service-icon"></i>
+                            <h5 class="card-title">Root Canal Treatment</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Orthodontics Services -->
+        <div class="service-category">
+            <h3>Orthodontics:</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-title="Metal Braces" data-description="Traditional braces made of high-grade stainless steel to straighten teeth.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-teeth service-icon"></i>
+                            <h5 class="card-title">Metal Braces</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Ceramic Braces" data-description="Braces made of clear ceramic material, making them less noticeable.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-teeth service-icon"></i>
+                            <h5 class="card-title">Ceramic Braces</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Self-Ligating Braces" data-description="Braces that use a sliding mechanism to hold the wire, requiring fewer adjustments.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-teeth service-icon"></i>
+                            <h5 class="card-title">Self-Ligating Braces</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Retainers" data-description="Devices used to maintain the position of teeth after orthodontic treatment.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-teeth service-icon"></i>
+                            <h5 class="card-title">Retainers</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Oral Surgery Services -->
+        <div class="service-category">
+            <h3>Oral Surgery:</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-title="Tooth Extraction" data-description="The removal of a tooth from its socket in the bone.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-teeth service-icon"></i>
+                            <h5 class="card-title">Tooth Extraction</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Surgery of Impacted Tooth" data-description="Surgery to remove teeth that have not erupted into the mouth properly.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-teeth service-icon"></i>
+                            <h5 class="card-title">Surgery of Impacted Tooth</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Frenectomy" data-description="Surgical removal of a frenulum, a small fold of tissue.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-syringe service-icon"></i>
+                            <h5 class="card-title">Frenectomy</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Periodontics Services -->
+        <div class="service-category">
+            <h3>Periodontics:</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-title="Deep Scaling" data-description="A cleaning procedure that reaches below the gumline to remove plaque and tartar.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-tooth service-icon"></i>
+                            <h5 class="card-title">Deep Scaling</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Gingivectomy" data-description="The surgical removal of gum tissue to treat gum disease or improve the appearance of the gums.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-tooth service-icon"></i>
+                            <h5 class="card-title">Gingivectomy</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prosthodontics Services -->
+        <div class="service-category">
+            <h3>Prosthodontics:</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-title="Porcelain Crown" data-description="A crown made from porcelain that covers and protects a tooth.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-crown service-icon"></i>
+                            <h5 class="card-title">Porcelain Crown</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Zirconia Crown" data-description="A crown made from zirconium dioxide, known for its strength and durability.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-crown service-icon"></i>
+                            <h5 class="card-title">Zirconia Crown</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cosmetic Dentistry Services -->
+        <div class="service-category">
+            <h3>Cosmetic Dentistry:</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-title="Teeth Whitening" data-description="A procedure to lighten the color of your teeth.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-smile service-icon"></i>
+                            <h5 class="card-title">Teeth Whitening</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Veneers / Laminates" data-description="Thin shells of porcelain or composite resin that cover the front surface of teeth.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-smile service-icon"></i>
+                            <h5 class="card-title">Veneers / Laminates</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Flexible Denture" data-description="A type of removable partial denture made from a softer, flexible material.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-smile service-icon"></i>
+                            <h5 class="card-title">Flexible Denture</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-title="Complete Denture" data-description="A removable appliance that replaces all of the teeth in the upper or lower jaw.">
+                        <div class="card-body text-center">
+                            <i class="fas fa-smile service-icon"></i>
+                            <h5 class="card-title">Complete Denture</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="serviceModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="serviceDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Tabaco Branch</p>
+        <p>2F A. A. Berces St., Brgy. Basud, 4511 Tabaco, Philippines</p>
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.483-.661 1.186-.45 1.812a17.634 17.634 0 0 0 4.224 6.01 17.634 17.634 0 0 0 6.01 4.224c.626.211 1.33.033 1.812-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+            </svg>
+            0970-156-7163 / 0967-351-3328
+        </p>
+        <p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook"
+                viewBox="0 0 16 16">
+                <path
+                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+            </svg>
+            <a href="https://www.facebook.com/CSDCTabacoBranch">Creative Smile Dental Clinic Tabaco Branch</a>
+        </p>
+    </footer>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function () {
+                const title = this.getAttribute('data-title');
+                const description = this.getAttribute('data-description');
+                document.getElementById('serviceModalLabel').textContent = title;
+                document.getElementById('serviceDescription').textContent = description;
+                $('#serviceModal').modal('show');
+            });
+        });
+    </script>
+</body>
+
+</html>

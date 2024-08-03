@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Smile Dental Clinic - Patient</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background-color: rgb(173, 216, 230); }
+        .main-content { 
+            background-color: #b2ebf2; 
+            border-radius: 10px;
+            padding: 2rem;
+        }
+        .logo { 
+            max-width: 200px;
+            margin-bottom: 2rem;
+        }
+        
+        .chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4da6ff;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .chatbot {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            max-width: 100%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 1rem;
+        }
+        .chatbot-header {
+            background-color: #4da6ff;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+        .chatbot-body {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .chatbot-footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="C:\Users\tonya\web\Images\logo.png" width="80" height="80" class="d-inline-block align-top" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Registration.html">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="LogIn.html">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-4">
+                <div class="main-content text-center">
+                    <img src="C:\Users\tonya\web\Images\logo.png" width="250" height="250" class="d-inline-block align-top" alt="Clinic Logo">
+                    <div class="mb-4">
+                        <h5>Welcome to Our Clinic</h5>
+                        <p>We are dedicated to providing you with the best dental care in a comfortable and friendly environment. Explore your dashboard to manage your appointments, view medical records, and more.</p>
+                    </div>
+                    <div>
+                        <h5>Our Services</h5>
+                        <p>From routine check-ups to advanced dental treatments, we offer a wide range of services to meet all your dental needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot Icon at the Bottom -->
+    <div class="chatbot-icon" onclick="toggleChatbot()">
+        <i class="fas fa-comment-alt"></i>
+    </div>
+
+    <!-- Chatbot Section -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header">
+            <h5>Ask a Question</h5>
+        </div>
+        <div class="chatbot-body">
+            <p>Choose a question to get started:</p>
+            <ul class="list-group">
+                <li class="list-group-item"><a href="#" onclick="displayAnswer('What are your office hours?')">What are your office hours?</a></li>
+                <li class="list-group-item"><a href="#" onclick="displayAnswer('How do I schedule an appointment?')">How do I schedule an appointment?</a></li>
+                <li class="list-group-item"><a href="#" onclick="displayAnswer('What services do you offer?')">What services do you offer?</a></li>
+                <li class="list-group-item"><a href="#" onclick="displayAnswer('Do you accept my insurance?')">Do you accept my insurance?</a></li>
+                <li class="list-group-item"><a href="#" onclick="displayAnswer('What should I expect during my first visit?')">What should I expect during my first visit?</a></li>
+            </ul>
+        </div>
+        <div class="chatbot-footer mt-3">
+            <p><strong>Answer:</strong></p>
+            <p id="chatbot-answer"></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbot');
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'block';
+            } else {
+                chatbot.style.display = 'none';
+            }
+        }
+
+        function displayAnswer(question) {
+            const answers = {
+                "What are your office hours?": "Our office hours are Monday to Friday, 9 AM to 5 PM.",
+                "How do I schedule an appointment?": "You can schedule an appointment by calling our office or using our online appointment booking system.",
+                "What services do you offer?": "We offer a wide range of dental services including cleanings, fillings, crowns, and more.",
+                "Do you accept my insurance?": "We accept most major insurance plans. Please contact our office for specific information.",
+                "What should I expect during my first visit?": "During your first visit, we will conduct a comprehensive dental examination and discuss your treatment options."
+            };
+            document.getElementById('chatbot-answer').innerText = answers[question];
+        }
+    </script>
+</body>
+</html>

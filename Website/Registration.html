@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Smile Dental Clinic</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(173, 216, 230);
+        }
+
+        .container {
+            background: url('/mnt/data/image.png') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            position: relative;
+            padding-top: 80px; /* Adjusted to prevent overlap with navbar */
+        }
+
+        .navbar {
+            background-color: rgb(173, 216, 230); /* Set the desired background color */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            color: black !important;
+            font-weight: bold;
+            margin: 0 5px; /* Add some spacing between the nav links */
+            border-radius: 5px; /* Optional: round the corners */
+            padding: 5px 10px; /* Add some padding to the links */
+        }
+
+        .form-container {
+            position: absolute;
+            top: 15%;
+            right: 5%;
+            background: rgba(222, 251, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            width: 120px;
+            margin-right: 10px;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="date"],
+        .form-group input[type="tel"],
+        .form-group input[type="password"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .password-container input {
+            flex: 1;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
+            padding: 0 5px;
+            transform: translateY(-50%);
+            top: 50%;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+
+        .background {
+            background-repeat: no-repeat;
+            background-attachment: cover;
+            background-position: center;
+            background-size: cover;
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                top: 15%; /* Adjusted to prevent overlap with navbar */
+                right: 5%;
+                left: 5%;
+                width: auto;
+                max-width: 100%;
+            }
+
+            .form-container label {
+                text-align: left;
+                padding-right: 0;
+            }
+
+            .form-container .form-group {
+                flex: 0 0 100%;
+                max-width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-group label {
+                width: 100%;
+                text-align: left;
+            }
+
+            .form-group input {
+                width: 100%;
+            }
+
+            .password-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .toggle-password {
+                top: 50%;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="background">
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">
+        <img src="C:\Users\tonya\web\Images\logo.png" width="70" height="70" class="d-inline-block align-top" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="registration.html">Registration</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="services.html">Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="AboutUs.html">About Us</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="form-container">
+        <h2>Registration Form</h2>
+        <form action="submit_registration.php" method="post">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="first-name">First Name:</label>
+                    <input type="text" class="form-control" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="last-name">Last Name:</label>
+                    <input type="text" class="form-control" id="last-name" name="last-name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="mi">M.I.:</label>
+                    <input type="text" class="form-control" id="mi" name="mi">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="age">Age:</label>
+                    <input type="text" class="form-control" id="age" name="age" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="gender">Gender:</label>
+                    <input type="text" class="form-control" id="gender" name="gender" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="contact-number">Contact Number:</label>
+                    <input type="text" class="form-control" id="contact-number" name="contact-number" inputmode="numeric" pattern="[0-9]*" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="form-group password-container">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+                <span class="toggle-password">Show</span>
+            </div>
+            <button type="submit">REGISTER</button>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    document.querySelector('.toggle-password').addEventListener('click', function (e) {
+        const passwordInput = document.getElementById('password');
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? 'Show' : 'Hide';
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Form</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(191, 232, 255, 0.8);
+        }
+        .appointment-form {
+            background-color: #a6d0fa;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Appointment Form</h2>
+    <form class="appointment-form">
+        <div class="form-group">
+            <label for="clientName">Name:</label>
+            <input type="text" class="form-control" id="clientName" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+            <label for="clientEmail">Email:</label>
+            <input type="email" class="form-control" id="clientEmail" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+            <label for="appointmentDate">Appointment Date:</label>
+            <input type="date" class="form-control" id="appointmentDate" required>
+        </div>
+        <div class="form-group">
+            <label for="appointmentTime">Appointment Time:</label>
+            <input type="time" class="form-control" id="appointmentTime" required>
+        </div>
+        <div class="form-group">
+            <label for="appointmentType">Appointment Type:</label>
+            <select class="form-control" id="appointmentType">
+                <option value="">Select an appointment type...</option>
+                <option value="restorative">Restorative</option>
+                <option value="endodontics">Endodontics</option>
+                <option value="orthodontics">Orthodontics</option>
+                <option value="oral-surgery">Oral Surgery</option>
+                <option value="periodontics">Periodontics</option>
+                <option value="cosmetics">Cosmetics</option>
+                <option value="pediatric">Pediatric</option>
+                <option value="prosthodontics">Prosthodontics</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="service">Service:</label>
+            <select class="form-control" id="service">
+                <option value="">Select a service...</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        var services = {
+            "restorative": [
+                "Tooth Filling",
+                "Inlay / Onlay"
+            ],
+            "endodontics": [
+                "Root Canal Treatment",
+                "Pulpotomy"
+            ],
+            "orthodontics": [
+                "Metal Braces",
+                "Ceramic Braces",
+                "Self-Ligating Braces",
+                "Retainers"
+            ],
+            "oral-surgery": [
+                "Tooth Extraction",
+                "Surgery of Impacted Tooth",
+                "Fenectomy"
+            ],
+            "periodontics": [
+                "Oral Prophylaxis",
+                "Gingivectomy",
+                "Crown Lengthening"
+            ],
+            "cosmetics": [
+                "Teeth Whitening",
+                "Veneers"
+            ],
+            "pediatric": [
+                "Tooth Filling",
+                "Fluoride Application",
+                "Strip Off Crown",
+                "Stainless Steel Crown",
+                "Pit and Fissure Sealant",
+                "Space Management"
+            ],
+            "prosthodontics": [
+                "Removable Partial Denture",
+                "Porcelain Crowns and Bridge"
+            ]
+        };
+
+        $('#appointmentType').change(function() {
+            var appointmentType = $(this).val();
+            var serviceOptions = '<option value="">Select a service...</option>';
+
+            if (appointmentType) {
+                services[appointmentType].forEach(function(service) {
+                    serviceOptions += '<option value="' + service + '">' + service + '</option>';
+                });
+            }
+
+            $('#service').html(serviceOptions);
+        });
+    });
+</script>
+</body>
+</html>

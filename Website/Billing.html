@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(191, 232, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .invoice-box {
+            width: 100%;
+            max-width: 800px;
+            padding: 30px;
+            border: 1px solid #81b8f0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #000000;
+            background-color: #a6d0fa;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+        }
+
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: right;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #080808;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #67adf3;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td {
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #f2f3f3;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="invoice-box">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="C:\Users\tonya\web\Images\logo.png" alt="Company logo" style="width: 100%; max-width: 300px;" />
+                            </td>
+                            <td>
+                                Invoice #: 123<br />
+                                Created: January 1, 2021<br />
+                                
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                Your Company Name<br />
+                                Creative Smile Dental Clinic<br />
+                                Tabaco Branch
+                            </td>
+                            <td>
+                                Client Name<br />
+                                67890 Cloudy Blvd<br />
+                                Cloudycity, CA 67890
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="heading">
+                <td>Payment Method</td>
+                <td>Transaction #</td>
+            </tr>
+            <tr class="details">
+                <td>GCash</td>
+                <td>1000</td>
+            </tr>
+            <tr class="heading">
+                <td>Item</td>
+                <td>Price</td>
+            </tr>
+            <tr class="item">
+                <td>Website design</td>
+                <td>₱300.00</td>
+            </tr>
+            <tr class="item">
+                <td>Hosting (3 months)</td>
+                <td>₱75.00</td>
+            </tr>
+            <tr class="item last">
+                <td>Domain name (1 year)</td>
+                <td>₱10.00</td>
+            </tr>
+            <tr class="total">
+                <td></td>
+                <td>Total: ₱385.00</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

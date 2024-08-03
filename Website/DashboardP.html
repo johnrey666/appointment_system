@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Smile Dental Clinic - Patient Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgba(191, 232, 255, 0.8); /* Light background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            min-height: 100vh;
+            justify-content: left;
+            align-items: left;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .sidebar {
+            background-color: #8ac3f8;
+            padding: 40px;
+            margin-left: -20%;
+            margin-right: 4%;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            text-align: left; /* Center content inside the sidebar */
+            
+        }
+
+        .sidebar .img-container {
+            margin-bottom: 20px;
+        }
+
+        .sidebar img {
+            display: block;
+            margin: 0 auto;
+            width: 90px; /* Adjust the width as needed */
+            height: 90px; /* Adjust the height as needed */
+            border-radius: 50%; /* Makes the image circular */
+            object-fit: cover; /* Ensures the image covers the container */
+            cursor: pointer;
+        }
+
+        .sidebar h5 {
+            margin-top: 10px;
+            color: #000000; /* Change text color if needed */
+        }
+
+        .sidebar button, .sidebar a {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px; /* Adjusted margin */
+            background-color: #4da6ff;
+            border: none;
+            color: rgb(4, 4, 4);
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            text-align: center;
+            padding-left: 20px;
+            text-decoration: none; /* Added text decoration for anchor tags */
+            display: block; /* Ensures block display for anchor tags */
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header, .upcoming-appointments, .billing, .contact-dentist {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        .header h1, .header p {
+            margin: 0;
+            text-align: left;
+        }
+
+        .upcoming-appointments, .billing, .contact-dentist {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .contact-dentist {
+            display: grid;
+            gap: 40px;
+        }
+
+        @media (max-width: 767px) {
+            .sidebar {
+                position: static;
+                width: 100%;
+                align-items: center;
+            }
+            .main-content {
+                width: 100%;
+                align-items: center;
+            }
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="img-container">
+                <img id="patient-image" class="card-img circle-img" src="path/to/default-image.jpg"  onclick="document.getElementById('image-upload').click()">
+                <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="displayImage(this)">
+                <h5 class="card-title mt-3">John Doe</h5> <!-- Moved title here -->
+            </div>
+            <a href="Profile.html">Profile</a>
+            <a href="Appointments.html">Appointments</a>
+            <a href="Billing.html">Billing</a>
+            <a href="Tooth.html">Tooth Chart</a>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1 id="current-date">Loading...</h1>
+                <p id="current-time">Loading...</p>
+            </div>
+            <div class="upcoming-appointments">
+                <h2>Upcoming Appointments</h2>
+                <ul>
+                    <li>June 10, 2024 - 9:00 AM - Cleaning</li>
+                    <li>July 22, 2024 - 11:00 AM - Filling</li>
+                </ul>
+            </div>
+            <div class="billing">
+                <h2>Billing Information</h2>
+                <p>Outstanding Balance: ₱200</p>
+                <p>Last Payment: ₱100 on April 15, 2024</p>
+            </div>
+            <div class="contact-dentist">
+                <div class="today">
+                    <h2>Contact Your Dentist</h2>
+                    <p>Email: dentist@creativesmile.com </p>
+                    <p>Phone: 0970-156-7163 / 0967-351-3328 </p>
+                </div>
+                <div class="calendar">
+                    <h2>Patient Notes</h2>
+                    <p>Please follow the post-visit instructions provided during your last appointment.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Manila' };
+            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Manila' };
+            const date = now.toLocaleDateString('en-US', optionsDate);
+            const time = now.toLocaleTimeString('en-US', optionsTime);
+            document.getElementById('current-date').textContent = date.toUpperCase();
+            document.getElementById('current-time').textContent = time;
+        }
+
+        function displayImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('patient-image').src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+    </script>
+</body>
+</html>

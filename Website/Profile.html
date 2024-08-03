@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patient Profile - Dental Clinic</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .background {
+      background-color: rgb(173, 216, 230); /* Light cyan background color */
+      min-height: 100vh; /* Ensures the background covers the entire viewport height */
+    }
+
+    .card-body {
+      background-color: rgba(153, 216, 253, 0.8); /* Light white background with some transparency */
+      border-radius: 5px; /* Rounded corners */
+      padding: 20px; /* Padding inside the card body */
+    }
+
+    .circle-img {
+      width: 200px; /* Increased width */
+      height: 200px; /* Increased height */
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer; /* Cursor changes to pointer to indicate it's clickable */
+    }
+
+    .img-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background-color: #ffffff; /* White background color for the image container */
+      border-radius: 8px; /* Rounded corners for the container */
+      border: 2px solid #cccccc; /* Optional: Add a border around the container */
+    }
+
+    .content-center {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* Align items at the start of the container */
+      height: 100%; /* Ensures it takes up the full height of the container */
+    }
+
+    .content {
+      width: 100%; /* Ensures it takes up the full width of the container */
+    }
+
+    .sidebar {
+      background-color: #91e9f4; /* Light white background with some transparency */
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid rgba(191, 232, 255, 0.8); /* Optional: Add a border around the container */
+      height: 100%; /* Ensures it takes up the full height of the container */
+    }
+
+    .sidebar h5 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="background">
+  <div class="container mt-5">
+    <div class="card mb-4">
+      <div class="row no-gutters">
+        <div class="col-md-3">
+          <div class="sidebar img-container">
+            <img id="patient-image" class="card-img circle-img" onclick="document.getElementById('image-upload').click()">
+            <input type="file" id="image-upload" accept="image/*" style="display: none;">
+            <h5 class="card-title mt-3">John Doe</h5> <!-- Moved title here -->
+          </div>
+        </div>
+        <div class="col-md-9 content-center">
+          <div class="card-body content">
+            <p class="card-text"><strong>About:</strong> John is a long-time patient at our clinic, known for his friendly demeanor and positive attitude towards dental care.</p>
+            <h6>Schedule</h6>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Next Appointment:</strong> July 28, 2024 - 10:00 AM</li>
+              <li class="list-group-item"><strong>Previous Appointment:</strong> June 15, 2024 - 2:00 PM</li>
+              <li class="list-group-item"><strong>Next Cleaning:</strong> October 5, 2024 - 11:00 AM</li>
+            </ul>
+            <h6 class="mt-3">Records</h6>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Last Cleaning:</strong> March 12, 2024</li>
+              <li class="list-group-item"><strong>Treatment:</strong> Orthodontics - Braces (Completed)</li>
+              <li class="list-group-item"><strong>Notes:</strong> Excellent progress with braces, next check-up in 3 months.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('image-upload').addEventListener('change', function(event) {
+      var reader = new FileReader();
+      reader.onload = function() {
+        var img = document.getElementById('patient-image');
+        img.src = reader.result;
+        document.getElementById('image-upload').style.display = 'none'; // Hide the file input after upload
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    });
+
+    document.getElementById('patient-image').addEventListener('dblclick', function() {
+      document.getElementById('image-upload').click(); // Show file input when image is double-clicked
+    });
+  </script>
+</body>
+</html>
