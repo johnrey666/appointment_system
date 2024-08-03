@@ -137,36 +137,28 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        // Example functions for button clicks
-        document.getElementById('dashboardBtn').addEventListener('click', function() {
-            alert('Dashboard button clicked!');
-            // Replace with actual functionality
-        });
+        function updateDateTime() {
+            const now = new Date();
+            const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Manila' };
+            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Manila' };
+            const date = now.toLocaleDateString('en-US', optionsDate);
+            const time = now.toLocaleTimeString('en-US', optionsTime);
+            document.getElementById('current-date').textContent = date.toUpperCase();
+            document.getElementById('current-time').textContent = time;
+        }
 
-        document.getElementById('patientsBtn').addEventListener('click', function() {
-            alert('Patients Records button clicked!');
-            // Replace with actual functionality
-        });
+        function displayImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('patient-image').src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
 
-        document.getElementById('scheduleBtn').addEventListener('click', function() {
-            alert('Schedule button clicked!');
-            // Replace with actual functionality
-        });
-
-        document.getElementById('accountsBtn').addEventListener('click', function() {
-            alert('Accounts button clicked!');
-            // Replace with actual functionality
-        });
-
-        document.getElementById('salesBtn').addEventListener('click', function() {
-            alert('Sales button clicked!');
-            // Replace with actual functionality
-        });
-
-        document.getElementById('aboutBtn').addEventListener('click', function() {
-            alert('About button clicked!');
-            // Replace with actual functionality
-        });
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
     </script>
 </body>
 </html>
