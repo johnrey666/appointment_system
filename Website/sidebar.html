@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #f0f8ff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        .navbar h2 {
+            display: inline;
+            font-size: 24px;
+            margin-right: auto;
+            font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .navbar .burger-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #004080;
+            display: none;
+        }
+
+        .navbar .burger-icon:hover {
+            color: #003366;
+        }
+
+        .sidebar {
+            background-color: #cce6ff;
+            width: 250px; /* Adjusted width for larger screens */
+            padding: 30px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            border: 1px solid lightblue;
+            border-radius: 10px;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            transition: transform 0.8s ease !important;
+            transform: translateX(-100%);
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        .sidebar img {
+            display: block;
+            margin: 0 auto 10px;
+            width: 140px !important;
+            height: 140px !important;
+            border-radius: 50%;
+            border: 3px solid lightblue;
+        }
+
+        .sidebar .admin-label {
+            text-align: center;
+            font-size: 16px;
+            color: #171717;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            background-color: #4da6ff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            text-decoration: none;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 30px;
+            width: calc(100% - 60px); /* Account for padding */
+            text-align: center;
+        }
+
+        .logout a {
+            background-color: #dc3545; /* Bootstrap danger color */
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logout a i {
+            margin-right: 10px;
+        }
+
+      /* Base Styles */
+.navbar .burger-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #004080;
+    display: block; /* Always visible */
+    z-index: 1050; /* Ensure it stays above the sidebar */
+}
+
+.sidebar {
+    background-color: #cce6ff;
+    width: 15%;
+    padding: 30px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Adjusted width for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .profile-pic {
+        width: 80px !important;
+        height: 80px;
+        border-radius: 50%;
+        border: 1px solid lightblue !important; 
+    }
+
+    .sidebar a {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <i class="fas fa-bars burger-icon" onclick="toggleSidebar()"></i>
+        <img src="../Images/logo.png" alt="Creative Smile Dental Clinic Logo">
+        <h2>Creative Smile Dental Clinic</h2>
+    </nav>
+    <div class="sidebar" id="sidebar">
+        <img class="profile-pic" src="https://scontent.fmnl25-2.fna.fbcdn.net/v/t39.30808-6/409622360_3439685513009179_4980470032259130782_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE-FcMteXupY9W5eCz8O-SrG1pb2-0qZWcbWlvb7SplZ9oU1pBk84DeP35G9ankM8Ov4tOy3pZ7jTQU1smv2u7w&_nc_ohc=jhY0dhF2g6AQ7kNvgEF7bRs&_nc_zt=23&_nc_ht=scontent.fmnl25-2.fna&oh=00_AYBm_tZVdI3pePWRGclM-tyheH4PUiQmU8oDE-u0UVsdaQ&oe=66B50B59" alt="User">
+        <div class="admin-label">Paolo Marana</div>
+        <a href="DashboardP.html"><i class="fas fa-home"></i> Home</a>
+        <a href="Profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="Appointments.html"><i class="fas fa-calendar-alt"></i> Appointment</a>
+        <a href="Billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="Tooth.html"><i class="fas fa-tooth"></i> Tooth Chart</a>
+        <div class="logout">
+            <a href="../login/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

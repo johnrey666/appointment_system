@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="patients.css">
+<link rel="icon" href="../../Images/logo.png" style="height: 64px; width: 64px;">
+
+</head>
+<body>
+    <nav class="navbar">
+        <img src="../../Images/logo.png" alt="Creative Smile Dental Clinic Logo">
+        <h2>Creative Smile Dental Clinic</h2>
+        <h3 class="nav_text">Patient's Record</h3>
+    </nav>
+    <div class="sidebar">
+        <img src="../../Images/default.png" alt="Admin Photo">
+        <div class="admin-label">Admin</div>
+        <a href="../dashboard/dashboard.html" aria-label="Go to Dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="Patients.html" aria-label="Go to Patients Records"><i class="fas fa-users"></i> Patients Records</a>
+        <a href="../patients_schedule/schedule.html" aria-label="Go to Schedule"><i class="fas fa-calendar-alt"></i> Schedule</a>
+        <a href="../user_accounts/accounts.html" aria-label="Go to Accounts"><i class="fas fa-file-invoice-dollar"></i> Accounts</a>
+        <a href="../sales_dashboard/sales.html" aria-label="Go to Sales"><i class="fas fa-chart-line"></i> Sales</a>
+        <a href="../about/about.html" aria-label="Go to About"><i class="fas fa-info-circle"></i> About</a>
+        <div class="logout">
+            <a href="../login/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <h2 class="mt-3">Creative Smile Dental Clinic</h2>
+        
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addNewModal">
+            <i class="fas fa-plus"></i> ADD NEW
+        </button>
+        <form>
+            <table class="table caption-top bg-light">
+                <caption>List of users</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Procedure</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">#OR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="row">1</td>
+                    <td>Tonny</td>
+                    <td>Heart Surgery</td>
+                    <td>Feb 4, 2003</td>
+                    <td>732.00</td>
+                    <td>632</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">2</td>
+                    <td>Pao</td>
+                    <td>Heatstroke</td>
+                    <td>Dec 25, 2001</td>
+                    <td>7.00</td>
+                    <td>23151213</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">3</td>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>Dec 1, 2032</td>
+                    <td>30,200.00</td>
+                    <td>21-777-22</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">4</td>
+                    <td>John Henry</td>
+                    <td>Sabaybay</td>
+                    <td>Dec 1, 2012</td>
+                    <td>3,200.00</td>
+                    <td>322421</td>
+                  </tr>
+                  <tr>
+                    <td scope="row">5</td>
+                    <td>Janrey(Pogi)</td>
+                    <td>Dado</td>
+                    <td>Feb 04, 2003</td>
+                    <td>20,320.00</td>
+                    <td>2213433</td>
+                  </tr>
+                </tbody>
+              </table>
+        </form>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="addNewModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNewModalLabel">Add New Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                               
+                                <input type="text" class="form-control" id="inputName" placeholder="Name">
+                            </div>
+                            <div class="form-group col-md-6">
+                               
+                                <select id="inputGender" class="form-control">
+                                    <option selected>Gender</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                       
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Address">
+                            </div>
+                            <div class="form-group col-md-3">
+                            
+                                <input type="number" class="form-control" id="inputAge" placeholder="Age">
+                            </div>
+                            <div class="form-group col-md-3">
+                                
+                                <input type="text" class="form-control" id="inputContact" placeholder="Contact No.">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                           
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                           
+                            <input type="text" class="form-control" id="medicalRecords" placeholder="Medical Records">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputDate">Appointment Schedule</label>
+                            <input type="date" class="form-control" id="inputDate">
+                        </div>
+          
+                        <center><button type="submit" class="btn btn-primary">Save</button></center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

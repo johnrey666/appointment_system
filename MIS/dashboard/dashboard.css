@@ -1,0 +1,245 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: #f0f8ff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar img {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.navbar h2 {
+    display: inline;
+    font-size: 24px;
+    margin-right: auto;
+    font-weight: 900;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.container {
+    display: flex;
+    height: calc(100vh - 60px);
+    max-width: 100%;
+    padding-left: 0;
+    margin-top: 60px;
+}
+
+.sidebar {
+    background-color: #cce6ff;
+    width: 15%;
+    padding: 30px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+}
+
+.sidebar img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 80px;
+}
+
+.sidebar .admin-label {
+    text-align: center;
+    font-size: 16px;
+    color: #171717;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #4da6ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    margin-left: 15%;
+}
+
+.date-time {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin: 5px;
+    border: 1px solid lightblue;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.header .current-info {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.header .current-info h1, .header .current-info p {
+    margin: 0;
+    padding: 0 10px;
+}
+
+.sales {
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 5px;
+    text-align: center;
+    border: 1px solid lightblue;
+}
+
+.user_counts {
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin: 5px;
+    text-align: center;
+    border: 1px solid lightblue;
+}
+
+.sales_container {
+    background-color: rgba(173, 216, 230, 0.238);
+    border-radius: 10px;
+}
+
+.sales h2 {
+    margin: 0;
+}
+
+.new-patients ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.new-patients ul li:nth-child(odd) {
+    background-color: #e0eef9;
+}
+
+.new-patients ul li:nth-child(even) {
+    background-color: #aecbd6;
+}
+
+.new-patients ul li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.d-flex-row {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.d-flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.schedule, .calendar {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 100%;
+    border: 1px solid lightblue;
+}
+
+#calendar {
+    width: 100%;
+    height: 200px;
+}
+
+.new-patients {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 60%;
+    border: 1px solid lightblue;
+}
+
+.chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 300px;
+}
+
+#salesChart {
+    max-width: 100%;
+}
+
+p, h1, h2, h3, h4, h5 {
+    font-family: 'Ubuntu';
+    color: #171717;
+    font-weight: 600;
+}
+
+.nav_text {
+    color: #18646ccd;
+}
+
+.logout {
+    position: absolute;
+    bottom: 30px;
+    width: calc(100% - 60px); /* Account for padding */
+    text-align: center;
+}
+
+.logout a {
+    background-color: #dc3545; /* Bootstrap danger color */
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout a i {
+    margin-right: 10px;
+}

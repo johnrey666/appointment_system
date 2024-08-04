@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom, #a3c2f7, #f0f9ff);
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #ffffff; /* Solid background */
+    border: solid 0.5px lightblue;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.login-box {
+    background: linear-gradient(to bottom, #a3c2f7, #ced8df);
+    padding: 60px; /* Increased padding */
+    width: 400px; /* Increased width */
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: 10px 0 6px rgba(0, 0, 0, 0.4); /* Shadow on the right side only */
+}
+
+.login-box img {
+    width: 200px; /* Increased image width */
+}
+
+.login-box h1 {
+    margin: 20px 0;
+}
+
+.login-box .input-container {
+    margin: 15px 0; /* Increased margin */
+    width: 100%;
+    position: relative;
+}
+
+.login-box input {
+    padding: 15px; /* Increased padding */
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: rgba(198, 247, 252, 0.678);
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    padding-right: 50px; /* Adjusted padding-right for icon space */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px; /* Adjusted right position */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    user-select: none;
+    width: 24px !important; /* Icon size */
+    height: 24px; /* Icon size */
+    transition: filter 0.3s ease; /* Smooth transition */
+}
+
+.toggle-password:hover {
+    filter: brightness(20%) !important; /* Darkens icon on hover */
+}
+
+.login-box button {
+    padding: 15px; /* Increased padding */
+    width: 100%;
+    border: none;
+    border-radius: 25px; /* Increased for more roundness */
+    background-color: #fafafa;
+    color: #000000;
+    font-weight: bolder !important;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added depth */
+    transition: box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.login-box button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deepens shadow on hover */
+}
+
+.image-box {
+    padding: 20px !important; /* Increased padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-box img {
+    width: 400px; /* Increased image width */
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+}

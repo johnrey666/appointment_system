@@ -1,0 +1,159 @@
+body {
+    background-color: #e6f2ff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.navbar {
+    background-color: #f0f8ff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed; /* Fix the navbar */
+    width: 100%; /* Full width */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure it stays on top */
+}
+.navbar:hover {
+    background-color: #e0f7ff;
+}
+.navbar img {
+    width: 80px;
+    margin-right: 10px;
+}
+.navbar h2 {
+    display: inline;
+    font-size: 24px;
+    margin-right: auto;
+    font-weight: 900;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.sidebar {
+    background-color: #cce6ff;
+    width: 15%;
+    padding: 30px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    position: fixed; /* Fix the sidebar */
+    top: 60px; /* Adjust top position to be below the fixed navbar */
+    left: 0;
+    height: calc(100vh - 60px); /* Full height, minus the height of the navbar */
+    overflow-y: auto; /* Add scroll if content overflows */
+}
+.sidebar a:hover {
+    background-color: #3399ff;
+    color: white;
+}
+.sidebar img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 80px;
+}
+.sidebar .admin-label {
+    text-align: center;
+    font-size: 16px;
+    color: #171717;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.sidebar a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #4da6ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+}
+.sidebar a i {
+    margin-right: 10px;
+}
+.main-content {
+    padding: 20px;
+    margin-top: 100px; /* Adjust margin to prevent overlap with fixed navbar */
+    margin-left: 250px;
+    margin-right: 20px;
+    height: 100%;
+    background-color: #ffffff;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+}
+.stat-card {
+    background-color: #d9e6f2;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.recent-invoice {
+    background-color: #d9e6f2;
+    border-radius: 10px;
+    padding: 20px;
+}
+.btn-primary {
+    background-color: #4da6ff;
+    border-color: #4da6ff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-primary:hover {
+    background-color: #3399ff;
+    border-color: #3399ff;
+}
+th, td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+th {
+    background-color: #acc4cf;
+    color: white;
+}
+tbody tr:nth-child(odd) {
+    background-color: #e0eef9; /* Light color for odd rows */
+}
+tbody tr:nth-child(even) {
+    background-color: #aecbd6; /* Slightly darker color for even rows */
+}
+tbody tr:hover {
+    background-color: #d0e3ff;
+}
+caption {
+    font-weight: bold;
+    color: #4da6ff;
+}
+
+p, h1, h2, h3, h4, h5{
+    font-family: 'Ubuntu';
+    font-weight: 600;
+}
+
+.nav_text{
+    color: #18646ccd;
+}
+
+.logout {
+    position: absolute;
+    bottom: 30px;
+    width: calc(100% - 60px); /* Account for padding */
+    text-align: center;
+}
+
+.logout a {
+    background-color: #dc3545; /* Bootstrap danger color */
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout a i {
+    margin-right: 10px;
+}

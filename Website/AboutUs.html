@@ -7,22 +7,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-        body { background-color: rgb(173, 216, 230); }
-        .main-content { 
-            background-color: #b2ebf2; 
+        body {
+            background-color: #f8f9fa;
+            font-family: georgia;
+            color: #333;
+        }
+        .navbar {
+            background-color: transparent;
+        }
+        .navbar-nav .nav-link {
+            color: #333 !important;
+            font-weight: 700;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #3b3b3b84 !important;
+        }
+        .main-content {
+            background-color: white;
+            border: 1px solid lightblue;
             border-radius: 10px;
             padding: 2rem;
+            box-shadow: 0 12px 17px rgba(34, 34, 34, 0.1);
+            margin-top: 2rem;
         }
-        .logo { 
-            max-width: 200px;
+        .logo {
+            max-width: 400px;
             margin-bottom: 2rem;
         }
-        
+        h5 {
+            color: white;
+        }
         .chatbot-icon {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #4da6ff;
+            background-color: rgb(69, 101, 246);
             color: white;
             border-radius: 50%;
             width: 60px;
@@ -30,8 +49,13 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .chatbot-icon:hover {
+            background-color: #577bff;
+            color: #ffffff;
         }
         .chatbot {
             display: none;
@@ -42,12 +66,12 @@
             max-width: 100%;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 1rem;
         }
         .chatbot-header {
-            background-color: #4da6ff;
-            color: white;
+            background-color: #0056b3;
+            color: black !important;
             padding: 0.5rem;
             border-radius: 10px 10px 0 0;
             text-align: center;
@@ -59,25 +83,35 @@
         .chatbot-footer {
             text-align: center;
         }
+        .list-group-item {
+            cursor: pointer;
+        }
+        .list-group-item:hover {
+            background-color: #f1f1f1;
+        }
+        .chatbot-footer p {
+            background-color: #e9ecef;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="C:\Users\tonya\web\Images\logo.png" width="80" height="80" class="d-inline-block align-top" alt="">
-            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="Registration.html">Registration</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="LogIn.html">Log In</a>
                     </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="Registration.html">Registration</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="services.html">Services</a>
                     </li>
@@ -86,11 +120,11 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 p-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
                 <div class="main-content text-center">
-                    <img src="C:\Users\tonya\web\Images\logo.png" width="250" height="250" class="d-inline-block align-top" alt="Clinic Logo">
+                    <img src="../Images/logo.png" width="300px !important" height="250" class="d-inline-block align-top logo" alt="Clinic Logo">
                     <div class="mb-4">
                         <h5>Welcome to Our Clinic</h5>
                         <p>We are dedicated to providing you with the best dental care in a comfortable and friendly environment. Explore your dashboard to manage your appointments, view medical records, and more.</p>
@@ -104,24 +138,21 @@
         </div>
     </div>
 
-    <!-- Chatbot Icon at the Bottom -->
     <div class="chatbot-icon" onclick="toggleChatbot()">
         <i class="fas fa-comment-alt"></i>
     </div>
 
-    <!-- Chatbot Section -->
     <div class="chatbot" id="chatbot">
         <div class="chatbot-header">
             <h5>Ask a Question</h5>
         </div>
         <div class="chatbot-body">
-            <p>Choose a question to get started:</p>
             <ul class="list-group">
-                <li class="list-group-item"><a href="#" onclick="displayAnswer('What are your office hours?')">What are your office hours?</a></li>
-                <li class="list-group-item"><a href="#" onclick="displayAnswer('How do I schedule an appointment?')">How do I schedule an appointment?</a></li>
-                <li class="list-group-item"><a href="#" onclick="displayAnswer('What services do you offer?')">What services do you offer?</a></li>
-                <li class="list-group-item"><a href="#" onclick="displayAnswer('Do you accept my insurance?')">Do you accept my insurance?</a></li>
-                <li class="list-group-item"><a href="#" onclick="displayAnswer('What should I expect during my first visit?')">What should I expect during my first visit?</a></li>
+                <li class="list-group-item" onclick="displayAnswer('What are your office hours?')">What are your office hours?</li>
+                <li class="list-group-item" onclick="displayAnswer('How do I schedule an appointment?')">How do I schedule an appointment?</li>
+                <li class="list-group-item" onclick="displayAnswer('What services do you offer?')">What services do you offer?</li>
+                <li class="list-group-item" onclick="displayAnswer('Do you accept my insurance?')">Do you accept my insurance?</li>
+                <li class="list-group-item" onclick="displayAnswer('What should I expect during my first visit?')">What should I expect during my first visit?</li>
             </ul>
         </div>
         <div class="chatbot-footer mt-3">

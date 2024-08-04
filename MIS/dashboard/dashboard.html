@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.2/main.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.2/main.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="icon" href="../../Images/logo.png" style="height: 64px; width: 64px;">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="../../Images/logo.png" alt="Creative Smile Dental Clinic Logo">
+        <h2>Creative Smile Dental Clinic</h2>
+        <h3 class="nav_text">Dashboard</h3>
+    </nav>
+    <div class="container">
+        <div class="sidebar">
+            <img src="../../Images/default.png" alt="Admin Photo">
+            <div class="admin-label">Admin</div>
+            <a href="Dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="../patients_record/Patients.html"><i class="fas fa-users"></i> Patients Records</a>
+            <a href="../patients_schedule/Schedule.html"><i class="fas fa-calendar-alt"></i> Schedule</a>
+            <a href="../user_accounts/Accounts.html"><i class="fas fa-file-invoice-dollar"></i> Accounts</a>
+            <a href="../sales_dashboard/sales.html"><i class="fas fa-chart-line"></i> Sales</a>
+            <a href="../about/About.html"><i class="fas fa-info-circle"></i> About</a>
+            <div class="logout">
+                <a href="../login/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <div class="sales_container">
+                    <div class="sales">
+                        <h4>Sales</h4>
+                        <div class="chart-container">
+                            <canvas id="salesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="sales_container">
+                    <div class="user_counts">
+                        <h4>Number of Users</h4>
+                        <div class="chart-container">
+                            <canvas id="userChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="sales_container">
+                    <div class="date-time">
+                        <h1 style="font-weight: 700;" id="current-date">Loading...</h1><br>
+                        <p style="font-weight: 500;" id="current-time">Loading...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex-row">
+                <div class="new-patients">
+                    <h2>New Patients</h2>
+                    <ul>
+                        <li>John Doe - 9:00 AM</li>
+                        <li>Jane Smith - 10:30 AM</li>
+                        <li>Michael Brown - 1:00 PM</li>
+                        <li>Emily Davis - 2:30 PM</li>
+                        <li>David Wilson - 4:00 PM</li>
+                    </ul>
+                </div>
+                <div class="d-flex-column">
+                    <div class="schedule">
+                        <h2>Today's Schedule</h2>
+                    </div>
+                    
+                    <div class="calendar">
+                        <div id='calendar'></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <script src="dashboard.js"></script>
+    
+</body>
+</html>

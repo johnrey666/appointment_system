@@ -1,81 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dental Clinic Patient Login</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      height: 100vh;
-      background: url("background.png") no-repeat center center fixed;
-      background-size: cover;
-    }
-    .login-container {
-      width: 200%;
-      max-width: 500px;
-      padding: 15px;
-      margin-right: 10px;
-      background-color: rgba(222, 251, 255, 0.8);
-      border: 1px solid #e3e6f0;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    .login-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #008080;
-    }
-    .login-container .form-group label {
-      color: #333333;
-    }
-    .login-container .btn-primary {
-      background-color: #008080;
-      border-color: #008080;
-    }
-    .login-container .btn-primary:hover {
-      background-color: #005f5f;
-      border-color: #005f5f;
-    }
-    .login-container .text-center a {
-      color: #008080;
-    }
-    .login-container .text-center a:hover {
-      color: #005f5f;
-    }
-    .logo {
-      display: block;
-      margin: 0 auto 20px;
-      max-width: 400px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Clinic Patient Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100vh;
+            background-image: url('../Images/background.png');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(121, 89, 249, 0.264);
+            backdrop-filter: blur(3px);
+            z-index: 1;
+        }
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: rgba(222, 251, 255, 0.955); /* Light blue background */
+            border: 1px solid #e3e6f0;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgb(14, 40, 62); /* Adjusted shadow for floating effect */
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    margin-right: 200px;
+        }
+        .login-container h2 {
+            color: #004080; /* Dark blue for contrast */
+            margin-bottom: 20px;
+        }
+        .login-container .form-group label {
+            color: #333;
+        }
+        .login-container .btn-primary {
+            background-color: #004080; /* Dark blue button */
+            border-color: #004080;
+        }
+        .login-container .btn-primary:hover {
+            background-color: #003366; /* Darker blue on hover */
+            border-color: #003366;
+        }
+        .login-container .text-center a {
+            color: #004080;
+        }
+        .login-container .text-center a:hover {
+            color: #003366;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+        }
+        .login-container .form-control {
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        .about-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .about-links a {
+            color: #666;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        .about-links a:hover {
+            color: #004080;
+        }
+        .fa-icon {
+            margin-right: 8px;
+            color: #004080; /* Dark blue icons */
+        }
+    </style>
 </head>
 <body>
+    <div class="overlay"></div>
+    <div class="login-container">
+        <img src="../Images/logo.png" class="logo" alt="Logo">
 
-  <div class="login-container">
-    <img src="C:\Users\tonya\web\Images\logo.png" class="logo" alt="Logo">
-    <h2>Login</h2>
-    <form>
-      <div class="form-group">
-        <label for="Username">Username</label>
-        <input type="Username" class="form-control" id="Username" placeholder="Username">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
-      </div>
-      <button type="submit" class="btn btn-primary btn-block">Login</button>
-    </form>
-    <div class="text-center mt-3">
-      <a href="#">Forgot password?</a>
+        <form>
+            <div class="form-group">
+                <input type="text" class="form-control" id="username" placeholder="Username">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">
+                <a href="DashboardP.html" style="text-decoration: none; color: white;">Login</a>
+            </button>
+            <div class="text-center mt-3">
+                <a href="#">Forgot password?</a>
+            </div>
+            <div class="text-center mt-3">
+                <a href="registration.html">Don't have an account yet? Register here</a>
+            </div>
+        </form>
+        <div class="about-links">
+            <a href="AboutUs.html" class="about-link">
+                <i class="fa fa-info-circle fa-icon"></i>About Us
+            </a>
+            <a href="services.html" class="about-link">
+                <i class="fa fa-cogs fa-icon"></i>Services
+            </a>
+        </div>
     </div>
-  </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const registered = urlParams.get('registered');
+            if (registered) {
+                const modalHtml = 
+                    <div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Thank You For Registering</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Please Log in to Continue.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                ;
+                $('body').append(modalHtml);
+                $('#thankYouModal').modal('show');
+                setTimeout(function() {
+                    $('#thankYouModal').modal('hide');
+                }, 3000);
+            }
+        });
+    </script>
 </body>
 </html>

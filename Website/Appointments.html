@@ -4,125 +4,332 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment Form</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            background-color: rgba(191, 232, 255, 0.8);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f8ff; /* Very light blue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            max-height: 100vh;
         }
-        .appointment-form {
-            background-color: #a6d0fa;
+
+        .container {
+            display: flex;
+            flex: 1;
+            transition: margin-left 0.3s; /* Smooth transition for content */
+            left: 200px;
+        }
+
+        .sidebar {
+            background-color: #8ac3f8;
             padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            position: fixed;
+            height: 100%;
+            width: 250px;
+            overflow-y: auto;
+            transition: transform 1s; /* Smooth transition for sidebar */
+            left: 0;
+        }
+
+        .sidebar.closed {
+            transform: translateX(-240px); /* Move sidebar out of view */
+        }
+
+        .sidebar .img-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+            border: 3px solid #ffffff; /* White border for the profile image */
+        }
+
+        .sidebar h5 {
+            margin-top: 10px;
+            color: #ffffff;
+            font-size: 18px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            background-color: #4da6ff;
+            color: #ffffff;
+            font-size: 16px;
+            text-align: center;
             border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #007bff;
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .main-content {
+            padding: 20px;
+            flex: 1;
+            transition: margin-left 0.3s; /* Smooth transition for content */
+            margin-left: 30px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center content */
+            background-color: #ffffff;
+            padding: 15px 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative; /* Ensure the burger icon is positioned correctly */
+        }
+
+        .header .burger-icon {
+            position: absolute;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333333;
+        }
+
+        .header .date-time {
+            text-align: center;
+        }
+
+        .header .date-time h1 {
+            margin: 0;
+            font-size: 24px;
+            color: #333333;
+        }
+
+        .header .date-time p {
+            margin: 0;
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .appointment-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5%;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 80%;
+            margin-left: 100px;
+        }
+
+        .upcoming-appointments, .billing, .contact-dentist {
+            width: 1200px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .contact-dentist {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .contact-dentist div {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .contact-dentist div:last-child {
+            margin-right: 0;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                flex-direction: column;
+                margin-left: 0; /* Adjust content margin on mobile */
+            }
+            .sidebar {
+                width: 100%;
+                height: 100%;
+                transform: translateX(-100%); /* Hide sidebar by default on mobile */
+            }
+            .sidebar.open {
+                transform: translateX(0); /* Show sidebar when open */
+            }
+            .main-content {
+                margin-left: 0; /* Adjust content margin on mobile */
+            }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <span class="burger-icon" id="burger-icon">&#9776;</span>
+        <div class="date-time">
+            <h1 id="current-date">Loading...</h1>
+            <p id="current-time">Loading...</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <div class="img-container">
+                <img id="patient-image" src="../Images/default.png" onclick="document.getElementById('image-upload').click()">
+                <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="displayImage(this)">
+                <h5>John Doe</h5>
+            </div>
+            <a href="DashboardP.html">Home</a>
+            <a href="Profile.html">Profile</a>
+            <a href="Appointments.html"  style="background-color: #007bff; transform: scale(1.05);">Appointments</a>
+            <a href="Billing.html">Billing</a>
+            <a href="Tooth.html">Tooth Chart</a>
+            <div class="footer"><br><br><br><br>
+                <a style="background-color: rgba(255, 0, 0, 0.753);" href="LogIn.html">Log Out</a>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="container mt-5">
+                <form class="appointment-form">
+                    <div class="form-group">
+          
+                        <input type="text" class="form-control" id="clientName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+           
+                        <input type="email" class="form-control" id="clientEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                
+                        <input type="date" class="form-control" id="appointmentDate" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="time" class="form-control" id="appointmentTime" required>
+                    </div>
+                    <div class="form-group">
+                  
+                        <select class="form-control" id="appointmentType">
+                            <option value="">Select an appointment type...</option>
+                            <option value="restorative">Restorative</option>
+                            <option value="endodontics">Endodontics</option>
+                            <option value="orthodontics">Orthodontics</option>
+                            <option value="oral-surgery">Oral Surgery</option>
+                            <option value="periodontics">Periodontics</option>
+                            <option value="cosmetics">Cosmetics</option>
+                            <option value="pediatric">Pediatric</option>
+                            <option value="prosthodontics">Prosthodontics</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+           
+                        <select class="form-control" id="service">
+                            <option value="">Select a service...</option>
+                        </select>
+                    </div>
+                    <center><button type="submit" class="btn btn-primary">Submit</button></center>
+                </form>
+            </div>
+        </div>
+    </div>
 
-<div class="container mt-5">
-    <h2>Appointment Form</h2>
-    <form class="appointment-form">
-        <div class="form-group">
-            <label for="clientName">Name:</label>
-            <input type="text" class="form-control" id="clientName" placeholder="Enter your name" required>
-        </div>
-        <div class="form-group">
-            <label for="clientEmail">Email:</label>
-            <input type="email" class="form-control" id="clientEmail" placeholder="Enter your email" required>
-        </div>
-        <div class="form-group">
-            <label for="appointmentDate">Appointment Date:</label>
-            <input type="date" class="form-control" id="appointmentDate" required>
-        </div>
-        <div class="form-group">
-            <label for="appointmentTime">Appointment Time:</label>
-            <input type="time" class="form-control" id="appointmentTime" required>
-        </div>
-        <div class="form-group">
-            <label for="appointmentType">Appointment Type:</label>
-            <select class="form-control" id="appointmentType">
-                <option value="">Select an appointment type...</option>
-                <option value="restorative">Restorative</option>
-                <option value="endodontics">Endodontics</option>
-                <option value="orthodontics">Orthodontics</option>
-                <option value="oral-surgery">Oral Surgery</option>
-                <option value="periodontics">Periodontics</option>
-                <option value="cosmetics">Cosmetics</option>
-                <option value="pediatric">Pediatric</option>
-                <option value="prosthodontics">Prosthodontics</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label for="service">Service:</label>
-            <select class="form-control" id="service">
-                <option value="">Select a service...</option>
-            </select>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Manila' };
+            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Manila' };
+            const date = now.toLocaleDateString('en-US', optionsDate);
+            const time = now.toLocaleTimeString('en-US', optionsTime);
+            document.getElementById('current-date').textContent = date.toUpperCase();
+            document.getElementById('current-time').textContent = time;
+        }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script>
-    $(document).ready(function() {
-        var services = {
-            "restorative": [
-                "Tooth Filling",
-                "Inlay / Onlay"
-            ],
-            "endodontics": [
-                "Root Canal Treatment",
-                "Pulpotomy"
-            ],
-            "orthodontics": [
-                "Metal Braces",
-                "Ceramic Braces",
-                "Self-Ligating Braces",
-                "Retainers"
-            ],
-            "oral-surgery": [
-                "Tooth Extraction",
-                "Surgery of Impacted Tooth",
-                "Fenectomy"
-            ],
-            "periodontics": [
-                "Oral Prophylaxis",
-                "Gingivectomy",
-                "Crown Lengthening"
-            ],
-            "cosmetics": [
-                "Teeth Whitening",
-                "Veneers"
-            ],
-            "pediatric": [
-                "Tooth Filling",
-                "Fluoride Application",
-                "Strip Off Crown",
-                "Stainless Steel Crown",
-                "Pit and Fissure Sealant",
-                "Space Management"
-            ],
-            "prosthodontics": [
-                "Removable Partial Denture",
-                "Porcelain Crowns and Bridge"
-            ]
-        };
-
-        $('#appointmentType').change(function() {
-            var appointmentType = $(this).val();
-            var serviceOptions = '<option value="">Select a service...</option>';
-
-            if (appointmentType) {
-                services[appointmentType].forEach(function(service) {
-                    serviceOptions += '<option value="' + service + '">' + service + '</option>';
-                });
+        function displayImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('patient-image').src = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
             }
+        }
 
-            $('#service').html(serviceOptions);
+        document.getElementById('burger-icon').addEventListener('click', function() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('closed');
         });
-    });
-</script>
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        $(document).ready(function() {
+            var services = {
+                "restorative": [
+                    "Tooth Filling",
+                    "Inlay / Onlay"
+                ],
+                "endodontics": [
+                    "Root Canal Treatment",
+                    "Pulpotomy"
+                ],
+                "orthodontics": [
+                    "Metal Braces",
+                    "Ceramic Braces",
+                    "Self-Ligating Braces",
+                    "Retainers"
+                ],
+                "oral-surgery": [
+                    "Tooth Extraction",
+                    "Surgery of Impacted Tooth",
+                    "Frenectomy"
+                ],
+                "periodontics": [
+                    "Oral Prophylaxis",
+                    "Gingivectomy",
+                    "Crown Lengthening"
+                ],
+                "cosmetics": [
+                    "Teeth Whitening",
+                    "Veneers"
+                ],
+                "pediatric": [
+                    "Tooth Filling",
+                    "Fluoride Application",
+                    "Strip Off Crown",
+                    "Stainless Steel Crown",
+                    "Pit and Fissure Sealant",
+                    "Space Management"
+                ],
+                "prosthodontics": [
+                    "Removable Partial Denture",
+                    "Porcelain Crowns and Bridge"
+                ]
+            };
+
+            $('#appointmentType').change(function() {
+                var appointmentType = $(this).val();
+                var serviceOptions = '<option value="">Select a service...</option>';
+
+                if (appointmentType) {
+                    services[appointmentType].forEach(function(service) {
+                        serviceOptions += '<option value="' + service + '">' + service + '</option>';
+                    });
+                }
+
+                $('#service').html(serviceOptions);
+            });
+        });
+    </script>
 </body>
 </html>
