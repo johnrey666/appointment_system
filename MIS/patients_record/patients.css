@@ -11,6 +11,16 @@
             background-color: #f0f8ff;
             color: #333;
         }
+
+        .current{
+            transition: transform 0.3s ease;
+            transform: scale(1.1);
+            background-color: #2876c4 !important;
+        }
+        
+        .logout a:hover {
+            background-color: #a92431 !important; /* Bootstrap danger color */
+        }
         th, td {
             text-align: center;
             padding: 10px;

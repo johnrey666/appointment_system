@@ -5,6 +5,13 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.current{
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    background-color: #2876c4 !important;
+}
+
+
 .navbar {
     background-color: #f0f8ff;
     padding: 10px 20px;
@@ -222,6 +229,9 @@ p, h1, h2, h3, h4, h5 {
     align-items: center;
 }
 
+.logout a:hover {
+    background-color: #a92431 !important; /* Bootstrap danger color */
+}
 .logout a i {
     margin-right: 10px;
 }

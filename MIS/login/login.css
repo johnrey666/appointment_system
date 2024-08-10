@@ -5,7 +5,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to bottom, #a3c2f7, #f0f9ff);
+    background-image: url('../../Images/background.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    backdrop-filter: blur(10px);
 }
 
 
@@ -16,10 +21,11 @@ body {
     border: solid 0.5px lightblue;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: 10px 10px 6px rgba(102, 101, 101, 0.528);
 }
 
 .login-box {
-    background: linear-gradient(to bottom, #a3c2f7, #ced8df);
+    background: rgba(222, 251, 255, 0.955);
     padding: 60px; /* Increased padding */
     width: 400px; /* Increased width */
     display: flex;
@@ -46,10 +52,10 @@ body {
 .login-box input {
     padding: 15px; /* Increased padding */
     width: 100%;
-    border: none;
+    border: 1px solid #ced4da;
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: rgba(198, 247, 252, 0.678);
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .password-container {
@@ -81,9 +87,9 @@ body {
     padding: 15px; /* Increased padding */
     width: 100%;
     border: none;
-    border-radius: 25px; /* Increased for more roundness */
-    background-color: #fafafa;
-    color: #000000;
+    border-radius: 5px; /* Increased for more roundness */
+    background-color: #004080;
+    color: white;
     font-weight: bolder !important;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added depth */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Creative Smile Dental Clinic - Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <nav class="navbar">
+        <i class="fas fa-bars burger-icon" onclick="toggleSidebar()"></i>
+        <img src="../../Images/logo.png" alt="Creative Smile Dental Clinic Logo">
+        <h2>Creative Smile Dental Clinic</h2>
+    </nav>
+    <div class="sidebar" id="sidebar">
+        <img class="profile-pic" src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t39.30808-6/409622360_3439685513009179_4980470032259130782_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE-FcMteXupY9W5eCz8O-SrG1pb2-0qZWcbWlvb7SplZ9oU1pBk84DeP35G9ankM8Ov4tOy3pZ7jTQU1smv2u7w&_nc_ohc=8iT5vkGVoG8Q7kNvgHvivBn&_nc_zt=23&_nc_ht=scontent.fmnl13-1.fna&oh=00_AYC9v0hfmiflBLbY0e89AGmy1FkYRoV9eVGMjlZLtumG2g&oe=66BBA2D9" alt="User">
+        <div class="admin-label">Paolo Marana</div>
+        <a href="../dashboard/dashboard.html"><i class="fas fa-home"></i> Home</a>
+        <a href="profile.html" class="current"><i class="fas fa-user"></i> Profile</a>
+        <a href="Appointments.html"><i class="fas fa-calendar-alt"></i> Appointment</a>
+        <a href="Billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="teeth_chart/teeth_chart.html"><i class="fas fa-tooth"></i> Tooth Chart</a>
+        <div class="logout">
+            <a href="../login/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="profile-container">
+            <div class="profile-pic-container">
+                <img id="mainProfilePic" src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t39.30808-6/409622360_3439685513009179_4980470032259130782_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE-FcMteXupY9W5eCz8O-SrG1pb2-0qZWcbWlvb7SplZ9oU1pBk84DeP35G9ankM8Ov4tOy3pZ7jTQU1smv2u7w&_nc_ohc=8iT5vkGVoG8Q7kNvgHvivBn&_nc_zt=23&_nc_ht=scontent.fmnl13-1.fna&oh=00_AYC9v0hfmiflBLbY0e89AGmy1FkYRoV9eVGMjlZLtumG2g&oe=66BBA2D9" alt="User" onclick="document.getElementById('fileInput').click();">
+                <input type="file" id="fileInput" style="display: none;" accept="image/*" onchange="updateProfilePic(event)">
+            </div>
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('information')">Information</div>
+                <div class="tab" onclick="showTab('records')">Records</div>
+            </div>
+            <div id="information" class="tab-content active">
+                <div class="about-section">
+                    <p><strong>Name:</strong> Paolo Marana</p>
+                    <p><strong>Gender:</strong> Male</p>
+                    <p><strong>Contact Number:</strong> 0970-156-7163</p>
+                    <p><strong>Birthdate:</strong> January 1, 1990</p>
+                    <button class="btn" onclick="openEditModal()">Edit</button>
+                </div>
+            </div>
+            <div id="records" class="tab-content">
+                <div class="records-section">
+                    <p><strong>Last Visit:</strong> June 10, 2024</p>
+                    <p><strong>Upcoming Visit:</strong> July 22, 2024</p>
+                    <p><strong>Treatment History:</strong></p>
+                    <ul>
+                        <li>June 10, 2024 - Cleaning</li>
+                        <li>April 15, 2024 - Filling</li>
+    
+                    </ul>
+                    <button class="btn" onclick="downloadRecords()">Download Records</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Information Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label for="editName">Name</label>
+                            <input type="text" class="form-control" id="editName" value="Paolo Marana">
+                        </div>
+                        <div class="form-group">
+                            <label for="editGender">Gender</label>
+                            <select class="form-control" id="editGender">
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editContact">Contact Number</label>
+                            <input type="text" class="form-control" id="editContact" value="0970-156-7163">
+                        </div>
+                        <div class="form-group">
+                            <label for="editBirthdate">Birthdate</label>
+                            <input type="date" class="form-control" id="editBirthdate" value="1990-01-01">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="profile.js">   </script>
+</body>
+</html>

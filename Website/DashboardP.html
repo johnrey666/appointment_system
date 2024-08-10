@@ -6,10 +6,12 @@
     <title>Creative Smile Dental Clinic - Patient Portal</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Existing styles are kept unchanged */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f8ff; /* Very light blue background */
+            background-color: #e0f7ff;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,198 +19,517 @@
             min-height: 100vh;
         }
 
-        .container {
+        .navbar {
+            background-color: #f0f8ff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
             display: flex;
-            flex: 1;
-            transition: margin-left 0.3s; /* Smooth transition for content */
-            left: 200px;
-  
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        .navbar h2 {
+            display: inline;
+            font-size: 24px;
+            margin-right: auto;
+            font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .navbar .burger-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #004080;
+            display: block;
+            z-index: 1050;
         }
 
         .sidebar {
-            background-color: #8ac3f8;
-            padding: 20px;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-            position: fixed;
-            height: 100%;
+            background-color: #cce6ff;
             width: 250px;
-            overflow-y: auto;
-            transition: transform 1s; /* Smooth transition for sidebar */
+            padding: 30px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            border: 1px solid lightblue;
+            border-radius: 10px;
+            position: fixed;
+            top: 60px;
             left: 0;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            transition: transform 0.3s ease;
         }
 
         .sidebar.closed {
-            transform: translateX(-240px); /* Move sidebar out of view */
-        }
-
-        .sidebar .img-container {
-            text-align: center;
-            margin-bottom: 20px;
+            transform: translateX(-100%);
         }
 
         .sidebar img {
-            width: 100px;
-            height: 100px;
+            display: block;
+            margin: 0 auto 10px;
+            width: 140px !important;
+            height: 140px !important;
             border-radius: 50%;
-            object-fit: cover;
-            cursor: pointer;
-            border: 3px solid #ffffff; /* White border for the profile image */
+            border: 3px solid lightblue;
         }
 
-        .sidebar h5 {
-            margin-top: 10px;
-            color: #ffffff;
-            font-size: 18px;
+        .sidebar .admin-label {
+            text-align: center;
+            font-size: 16px;
+            color: #171717;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .sidebar a {
-            display: block;
+            display: flex;
+            align-items: center;
+            width: 100%;
             padding: 10px 20px;
             margin-bottom: 10px;
             background-color: #4da6ff;
-            color: #ffffff;
+            border: none;
+            color: white;
             font-size: 16px;
-            text-align: center;
-            border-radius: 5px;
+            cursor: pointer;
+            border-radius: 20px;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
         }
 
         .sidebar a:hover {
-            background-color: #007bff;
-            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
         }
 
-        .main-content {
-            padding: 20px;
-            flex: 1;
-            transition: margin-left 0.3s; /* Smooth transition for content */
-            margin-left: 30px;
-        }
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center content */
-            background-color: #ffffff;
-            padding: 15px 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative; /* Ensure the burger icon is positioned correctly */
-        }
-
-        .header .burger-icon {
+        .logout {
             position: absolute;
-            left: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333333;
-        }
-
-        .header .date-time {
+            bottom: 30px;
+            width: calc(100% - 60px);
             text-align: center;
         }
 
-        .header .date-time h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #333333;
+        .logout a {
+            background-color: #dc3545;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
         }
 
-        .header .date-time p {
-            margin: 0;
-            font-size: 16px;
-            color: #666666;
+        .logout a i {
+            margin-right: 10px;
         }
 
-        .upcoming-appointments, .billing, .contact-dentist {
-            width: 1200px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        .logout a:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            transition: margin-left 0.3s;
+            margin-left: 300px;
+            flex-direction: column;
+            padding: 15px 20px;
+            margin-top: 70px;
+            max-width: 100%;
+            width: 80%;
+        }
+
+        .container.sidebar-closed {
+            margin-left: 0;
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            transition: margin-left 0.3s;
+            margin-left: 250px;
+            flex-direction: column;
+            padding: 15px 20px;
+            margin-top: 70px;
+            height: calc(100vh - 70px);
+            background-color: #e0f7ff;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 1;
+        }
+
+        .upcoming-appointments, .billing, .contact-dentist, .notes {
+            width: 100%;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #ffffff, #f0f8ff);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             padding: 20px;
+            margin-bottom: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .upcoming-appointments:hover, .billing:hover, .notes:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-dentist:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .upcoming-appointments h2, .billing h2, .contact-dentist h2, .notes h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2876c4;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #4da6ff;
+            padding-bottom: 10px;
+        }
+
+        .upcoming-appointments ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+            color: #333;
         }
 
         .contact-dentist {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            gap: 20px;
+            flex: 1;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .notes {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            flex: 1;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .bot{
+            display:  flex;
+            flex-direction: row;
+            gap: 30px;
         }
 
         .contact-dentist div {
             flex: 1;
-            margin-right: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .contact-dentist div:last-child {
-            margin-right: 0;
+        .btn {
+            background-color: #4da6ff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 30px;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        @media (max-width: 767px) {
+        .btn:hover {
+            background-color: #3c8dce;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
             .container {
                 flex-direction: column;
-                margin-left: 0; /* Adjust content margin on mobile */
-            }
-            .sidebar {
+                margin-left: 0;
+                margin-top: 100px;
+                display: flex;
+                flex: 1;
+                transition: margin-left 0.3s;
+                padding: 15px 20px;
                 width: 100%;
-                height: 100%;
-                transform: translateX(-100%); /* Hide sidebar by default on mobile */
             }
-            .sidebar.open {
-                transform: translateX(0); /* Show sidebar when open */
-            }
+
             .main-content {
-                margin-left: 0; /* Adjust content margin on mobile */
+                margin-left: 0;
             }
+
+            .bot{
+                display: block;
+                width: 100%;
+            }
+
+            .contact-dentist {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                z-index: 1;
+            }
+
+            .sidebar img {
+                display: block;
+                margin: 0 auto 10px;
+                width: 140px !important;
+                height: 140px !important;
+                border-radius: 50%;
+                border: 3px solid lightblue;
+                margin-top: 30px;
+            }
+
+            .navbar h2 {
+            display: inline;
+            font-size: 14px;
+            margin-right: auto;
+            font-weight: 1000;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 10px;
+        }
+
+        .navbar img {
+            width: 90px;
+            margin-right: 10px;
+        }
+        }
+
+        .current {
+            transition: transform 0.3s ease;
+            transform: scale(1.1);
+            background-color: #2876c4 !important;
+        }
+
+        .add-appointment-icon {
+            font-size: 20px;
+            cursor: pointer;
+            color: #4da6ff;
+            margin-left: 10px;
+            vertical-align: middle;
+            transition: color 0.3s ease;
+        }
+
+        .add-appointment-icon:hover {
+            color: #3c8dce;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <span class="burger-icon" id="burger-icon">&#9776;</span>
-        <div class="date-time">
-            <h1 id="current-date">Loading...</h1>
-            <p id="current-time">Loading...</p>
+    <nav class="navbar">
+        <i class="fas fa-bars burger-icon" onclick="toggleSidebar()"></i>
+        <img src="../Images/logo.png" alt="Creative Smile Dental Clinic Logo">
+        <h2>Creative Smile Dental Clinic</h2>
+    </nav>
+    <div class="sidebar open" id="sidebar">
+        <img class="profile-pic" src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t39.30808-6/409622360_3439685513009179_4980470032259130782_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE-FcMteXupY9W5eCz8O-SrG1pb2-0qZWcbWlvb7SplZ9oU1pBk84DeP35G9ankM8Ov4tOy3pZ7jTQU1smv2u7w&_nc_ohc=8iT5vkGVoG8Q7kNvgHvivBn&_nc_zt=23&_nc_ht=scontent.fmnl13-1.fna&oh=00_AYC9v0hfmiflBLbY0e89AGmy1FkYRoV9eVGMjlZLtumG2g&oe=66BBA2D9" alt="User">
+        <div class="admin-label">Paolo Marana</div>
+        <a href="DashboardP.html" class="current"><i class="fas fa-home"></i> Home</a>
+        <a href="Profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="Appointments.html"><i class="fas fa-calendar-alt"></i> Appointment</a>
+        <a href="Billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="teeth_chart/teeth_chart.html"><i class="fas fa-tooth"></i> Tooth Chart</a>
+        <div class="logout">
+            <a href="../login/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </div>
     <div class="container">
-        <div class="sidebar" id="sidebar">
-            <div class="img-container">
-                <img id="patient-image" src="../Images/default.png" onclick="document.getElementById('image-upload').click()">
-                <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="displayImage(this)">
-                <h5>John Doe</h5>
-            </div>
-            <a href="DashboardP.html" style="background-color: #007bff; transform: scale(1.05);">Home</a>
-            <a href="Profile.html">Profile</a>
-            <a href="Appointments.html">Appointments</a>
-            <a href="Billing.html">Billing</a>
-            <a href="Tooth.html">Tooth Chart</a>
-            <div class="footer"><br><br><br><br>
-                <a style="background-color: rgba(255, 0, 0, 0.753);" href="LogIn.html">Log Out</a>
-            </div>
-        </div>
         <div class="main-content">
             <div class="upcoming-appointments">
-                <h2>Upcoming Appointments</h2>
+                <h2>
+                    Upcoming Appointments
+                    <i class="fas fa-plus-circle add-appointment-icon" data-toggle="modal" data-target="#newAppointmentModal"></i>
+                </h2>
                 <ul>
                     <li>June 10, 2024 - 9:00 AM - Cleaning</li>
                     <li>July 22, 2024 - 11:00 AM - Filling</li>
                 </ul>
+                <button class="btn" data-toggle="modal" data-target="#appointmentsModal">View All Appointments</button>
             </div>
             <div class="billing">
                 <h2>Billing Information</h2>
                 <p>Outstanding Balance: ₱200</p>
                 <p>Last Payment: ₱100 on April 15, 2024</p>
+                <a href="Billing.html" class="btn">Pay Now</a>
             </div>
+        <div class="bot">
             <div class="contact-dentist">
                 <div>
                     <h2>Contact Your Dentist</h2>
                     <p>Email: dentist@creativesmile.com</p>
                     <p>Phone: 0970-156-7163 / 0967-351-3328</p>
+                    <button class="btn" onclick="sendEmail()">Send Message</button>
                 </div>
+            </div>
+            <div class="notes">
                 <div>
                     <h2>Patient Notes</h2>
                     <p>Please follow the post-visit instructions provided during your last appointment.</p>
+                    <button class="btn" data-toggle="modal" data-target="#notesModal">View Notes</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+<!-- Modal for All Appointments -->
+<div class="modal fade" id="appointmentsModal" tabindex="-1" aria-labelledby="appointmentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="appointmentsModalLabel">All Appointments</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        June 10, 2024 - 9:00 AM - Cleaning
+                        <div>
+                            <button class="btn btn-danger btn-sm" onclick="cancelAppointment(this)">Cancel</button>
+                            <button class="btn btn-secondary btn-sm" onclick="rescheduleAppointment(this)">Reschedule</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        July 22, 2024 - 11:00 AM - Filling
+                        <div>
+                            <button class="btn btn-danger btn-sm" onclick="cancelAppointment(this)">Cancel</button>
+                            <button class="btn btn-secondary btn-sm" onclick="rescheduleAppointment(this)">Reschedule</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        August 14, 2024 - 2:00 PM - Whitening
+                        <div>
+                            <button class="btn btn-danger btn-sm" onclick="cancelAppointment(this)">Cancel</button>
+                            <button class="btn btn-secondary btn-sm" onclick="rescheduleAppointment(this)">Reschedule</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        September 20, 2024 - 10:00 AM - Checkup
+                        <div>
+                            <button class="btn btn-danger btn-sm" onclick="cancelAppointment(this)">Cancel</button>
+                            <button class="btn btn-secondary btn-sm" onclick="rescheduleAppointment(this)">Reschedule</button>
+                        </div>
+                    </li>
+                    <!-- Add more appointments here as needed -->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Modal for Patient Notes -->
+    <div class="modal fade" id="notesModal" tabindex="-1" aria-labelledby="notesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notesModalLabel">Patient Notes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please follow the post-visit instructions provided during your last appointment. Here are some details:</p>
+                    <ul>
+                        <li>Avoid hard foods for 24 hours after the procedure.</li>
+                        <li>Use the prescribed mouthwash twice a day.</li>
+                        <li>Contact your dentist if you experience any unusual symptoms.</li>
+                        <!-- Add more notes here as needed -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for New Appointment -->
+    <div class="modal fade" id="newAppointmentModal" tabindex="-1" aria-labelledby="newAppointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newAppointmentModalLabel">New Appointment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentType">Appointment Type</label>
+                            <select class="form-control" id="appointmentType">
+                                <option>Cleaning</option>
+                                <option>Filling</option>
+                                <option>Checkup</option>
+                                <option>Whitening</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType">Service Type</label>
+                            <select class="form-control" id="serviceType">
+                                <option>Consultation</option>
+                                <option>Treatment</option>
+                                <option>Follow-up</option>
+                                <option>Emergency</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDate">Date</label>
+                            <input type="date" class="form-control" id="appointmentDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentTime">Time</label>
+                            <input type="time" class="form-control" id="appointmentTime">
+                        </div>
+                        <button type="button" class="btn btn-primary">Set Appointment</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -218,34 +539,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        function updateDateTime() {
-            const now = new Date();
-            const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Manila' };
-            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Manila' };
-            const date = now.toLocaleDateString('en-US', optionsDate);
-            const time = now.toLocaleTimeString('en-US', optionsTime);
-            document.getElementById('current-date').textContent = date.toUpperCase();
-            document.getElementById('current-time').textContent = time;
-        }
-
-        function displayImage(input) {
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    document.getElementById('patient-image').src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-
-        document.getElementById('burger-icon').addEventListener('click', function() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('closed');
-        });
-
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
-    </script>
+    <script src="dashboard.js"></script>
 </body>
 </html>

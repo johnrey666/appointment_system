@@ -1,0 +1,336 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0f7ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #f0f8ff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.navbar h2 {
+    display: inline;
+    font-size: 24px;
+    margin-right: auto;
+    font-weight: 900;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.navbar .burger-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #004080;
+    display: block;
+    z-index: 1050;
+}
+
+.sidebar {
+    background-color: #cce6ff;
+    width: 250px;
+    padding: 30px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    transition: transform 0.3s ease;
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+.sidebar img {
+    display: block;
+    margin: 0 auto 10px;
+    width: 140px !important;
+    height: 140px !important;
+    border-radius: 50%;
+    border: 3px solid lightblue;
+}
+
+.sidebar .admin-label {
+    text-align: center;
+    font-size: 16px;
+    color: #171717;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    background-color: #4da6ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+.sidebar a:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.logout {
+    position: absolute;
+    bottom: 30px;
+    width: calc(100% - 60px);
+    text-align: center;
+}
+
+.logout a {
+    background-color: #dc3545;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.logout a i {
+    margin-right: 10px;
+}
+
+.logout a:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    transition: margin-left 0.3s;
+    margin-left: 300px;
+    flex-direction: column;
+    padding: 15px 20px;
+    margin-top: 70px;
+    max-width: 100%;
+    width: 80%;
+}
+
+.container.sidebar-closed {
+    margin-left: 0;
+}
+
+.container {
+    display: flex;
+    flex: 1;
+    transition: margin-left 0.3s;
+    margin-left: 250px;
+    flex-direction: column;
+    padding: 15px 20px;
+    margin-top: 70px;
+    height: calc(100vh - 70px);
+    background-color: #e0f7ff;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.upcoming-appointments, .billing, .contact-dentist, .notes {
+    width: 100%;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ffffff, #f0f8ff);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upcoming-appointments:hover, .billing:hover, .notes:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.contact-dentist:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+.upcoming-appointments h2, .billing h2, .contact-dentist h2, .notes h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2876c4;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #4da6ff;
+    padding-bottom: 10px;
+}
+
+.upcoming-appointments ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.contact-dentist {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex: 1;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.notes {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    flex: 1;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.bot{
+    display:  flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.contact-dentist div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn {
+    background-color: #4da6ff;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #3c8dce;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 100px;
+        display: flex;
+        flex: 1;
+        transition: margin-left 0.3s;
+        padding: 15px 20px;
+        width: 100%;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .bot{
+        display: block;
+        width: 100%;
+    }
+
+    .contact-dentist {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        z-index: 1;
+    }
+
+    .sidebar img {
+        display: block;
+        margin: 0 auto 10px;
+        width: 140px !important;
+        height: 140px !important;
+        border-radius: 50%;
+        border: 3px solid lightblue;
+        margin-top: 30px;
+    }
+
+    .navbar h2 {
+    display: inline;
+    font-size: 14px;
+    margin-right: auto;
+    font-weight: 1000;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 10px;
+}
+
+.navbar img {
+    width: 90px;
+    margin-right: 10px;
+}
+}
+
+.current {
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    background-color: #2876c4 !important;
+}
+
+.add-appointment-icon {
+    font-size: 20px;
+    cursor: pointer;
+    color: #4da6ff;
+    margin-left: 10px;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+}
+
+.add-appointment-icon:hover {
+    color: #3c8dce;
+}
+
+.btn-danger{
+    background-color: rgba(255, 0, 0, 0.547) !important;
+}

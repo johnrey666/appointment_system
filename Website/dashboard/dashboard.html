@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Smile Dental Clinic - Patient Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <nav class="navbar">
+        <i class="fas fa-bars burger-icon" onclick="toggleSidebar()"></i>
+        <img src="../../Images/logo.png" alt="Creative Smile Dental Clinic Logo">
+        <h2>Creative Smile Dental Clinic</h2>
+    </nav>
+    <div class="sidebar open" id="sidebar">
+        <img class="profile-pic" src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t39.30808-6/409622360_3439685513009179_4980470032259130782_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE-FcMteXupY9W5eCz8O-SrG1pb2-0qZWcbWlvb7SplZ9oU1pBk84DeP35G9ankM8Ov4tOy3pZ7jTQU1smv2u7w&_nc_ohc=8iT5vkGVoG8Q7kNvgHvivBn&_nc_zt=23&_nc_ht=scontent.fmnl13-1.fna&oh=00_AYC9v0hfmiflBLbY0e89AGmy1FkYRoV9eVGMjlZLtumG2g&oe=66BBA2D9" alt="User">
+        <div class="admin-label">Paolo Marana</div>
+        <a href="dashboard.html" class="current"><i class="fas fa-home"></i> Home</a>
+        <a href="../profile/profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="Billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="teeth_chart/teeth_chart.html"><i class="fas fa-tooth"></i> Tooth Chart</a>
+        <div class="logout">
+            <a href="../login/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="main-content">
+            <div class="upcoming-appointments">
+                <h2>
+                    Upcoming Appointments
+                    <i class="fas fa-plus-circle add-appointment-icon" data-toggle="modal" data-target="#newAppointmentModal"></i>
+                </h2>
+                <ul>
+                    <li>June 10, 2024 - 9:00 AM - Cleaning</li>
+                    <li>July 22, 2024 - 11:00 AM - Filling</li>
+                </ul>
+                <button class="btn" data-toggle="modal" data-target="#appointmentsModal">View All Appointments</button>
+            </div>
+            <div class="billing">
+                <h2>Billing Information</h2>
+                <p>Outstanding Balance: ₱200</p>
+                <p>Last Payment: ₱100 on April 15, 2024</p>
+                <a href="Billing.html" class="btn">Pay Now</a>
+            </div>
+        <div class="bot">
+            <div class="contact-dentist">
+                <div>
+                    <h2>Contact Your Dentist</h2>
+                    <p>Email: dentist@creativesmile.com</p>
+                    <p>Phone: 0970-156-7163 / 0967-351-3328</p>
+                    <button class="btn" onclick="sendEmail()">Send Message</button>
+                </div>
+            </div>
+            <div class="notes">
+                <div>
+                    <h2>Patient Notes</h2>
+                    <p>Please follow the post-visit instructions provided during your last appointment.</p>
+                    <button class="btn" data-toggle="modal" data-target="#notesModal">View Notes</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+<!-- Modal for All Appointments -->
+<div class="modal fade" id="appointmentsModal" tabindex="-1" aria-labelledby="appointmentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="appointmentsModalLabel">All Appointments</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        June 10, 2024 - 9:00 AM - Cleaning
+                        <div>
+                            <button class="btn btn-secondary btn-sm" onclick="rescheduleAppointment(this)">Reschedule</button>
+                            <button class="btn btn-danger btn-sm" onclick="cancelAppointment(this)">Cancel</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        July 22, 2024 - 11:00 AM - Filling
+          
+                            <div>
+                                <button class="btn btn-secondary btn-sm" onclick="rescheduleAppointment(this)">Reschedule</button>
+                                <button class="btn btn-danger btn-sm" onclick="cancelAppointment(this)">Cancel</button>
+                            </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        August 14, 2024 - 2:00 PM - Whitening
+                        <div>
+                            <button class="btn btn-secondary btn-sm" onclick="rescheduleAppointment(this)">Reschedule</button>
+                            <button class="btn btn-danger btn-sm" onclick="cancelAppointment(this)">Cancel</button>
+                        </div>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        September 20, 2024 - 10:00 AM - Checkup
+                        <div>
+                            <button class="btn btn-secondary btn-sm" onclick="rescheduleAppointment(this)">Reschedule</button>
+                            <button class="btn btn-danger btn-sm" onclick="cancelAppointment(this)">Cancel</button>
+                        </div>
+                    </li>
+                    <!-- Add more appointments here as needed -->
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Modal for Patient Notes -->
+    <div class="modal fade" id="notesModal" tabindex="-1" aria-labelledby="notesModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notesModalLabel">Patient Notes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please follow the post-visit instructions provided during your last appointment. Here are some details:</p>
+                    <ul>
+                        <li>Avoid hard foods for 24 hours after the procedure.</li>
+                        <li>Use the prescribed mouthwash twice a day.</li>
+                        <li>Contact your dentist if you experience any unusual symptoms.</li>
+                        <!-- Add more notes here as needed -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for New Appointment -->
+    <div class="modal fade" id="newAppointmentModal" tabindex="-1" aria-labelledby="newAppointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newAppointmentModalLabel">New Appointment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentType">Appointment Type</label>
+                            <select class="form-control" id="appointmentType">
+                                <option>Cleaning</option>
+                                <option>Filling</option>
+                                <option>Checkup</option>
+                                <option>Whitening</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="serviceType">Service Type</label>
+                            <select class="form-control" id="serviceType">
+                                <option>Consultation</option>
+                                <option>Treatment</option>
+                                <option>Follow-up</option>
+                                <option>Emergency</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDate">Date</label>
+                            <input type="date" class="form-control" id="appointmentDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentTime">Time</label>
+                            <input type="time" class="form-control" id="appointmentTime">
+                        </div>
+                        <button type="button" class="btn btn-primary">Set Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

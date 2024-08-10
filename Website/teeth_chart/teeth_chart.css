@@ -1,0 +1,230 @@
+body{
+    background: white
+  }
+  
+/* Default styles for larger screens */
+.tooth-chart {
+    width: 400px;
+    max-height: 100% !important;
+    margin-left: 700px;
+    margin-top: 50px;
+}
+
+.navbar h2 {
+    display: inline;
+    font-size: 24px;
+    margin-right: auto;
+    font-weight: 900;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+    .tooth-chart {
+        width: 100%; /* Make the tooth chart take up the full width */
+        margin-left: 0; /* Remove left margin for smaller screens */
+        margin-top: 20px; /* Adjust top margin for smaller screens */
+    }
+
+    .container {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 100px;
+        display: flex;
+        flex: 1;
+        transition: margin-left 0.3s;
+        padding: 15px 20px;
+        width: 100%;
+
+    }
+    .sidebar {
+        z-index: 1;
+    }
+
+    .sidebar img {
+        display: block;
+        margin: 0 auto 10px;
+        width: 140px !important;
+        height: 140px !important;
+        border-radius: 50%;
+        border: 3px solid lightblue;
+        margin-top: 30px;
+    }
+
+    .navbar h2 {
+    display: inline !important;
+    font-size: 14px !important;
+    margin-right: auto !important;
+    font-weight: 1000 !important;
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+    margin-top: 10px !important;
+}
+
+.navbar img {
+    width: 90px;
+    margin-right: 10px;
+}
+}
+
+/* Additional styles for very small screens, like phones in portrait mode */
+@media (max-width: 480px) {
+    .tooth-chart {
+        margin-top: 5 0px; /* Further adjust top margin */
+    }
+}
+
+  
+  #Spots{
+    polygon, path{
+      -webkit-transition:fill .25s;
+      transition:fill .25s;
+    }
+    polygon:hover, polygon:active, path:hover, path:active{
+      fill:#767676 !important;
+    }
+  }
+
+  .current{
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    background-color: #2876c4 !important;
+}
+
+          .navbar {
+            background-color: #f0f8ff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        .navbar h2 {
+            display: inline;
+            font-size: 24px;
+            margin-right: auto;
+            font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .navbar .burger-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #004080;
+            display: block;
+            z-index: 1050;
+        }
+
+        .sidebar {
+            background-color: #cce6ff;
+            width: 250px; /* Adjusted width for larger screens */
+            padding: 30px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            border: 1px solid lightblue;
+            border-radius: 10px;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.closed {
+            transform: translateX(-100%);
+        }
+
+        .sidebar img {
+            display: block;
+            margin: 0 auto 10px;
+            width: 140px !important;
+            height: 140px !important;
+            border-radius: 50%;
+            border: 3px solid lightblue;
+            margin-top: 30px;
+        }
+
+        .sidebar .admin-label {
+            text-align: center;
+            font-size: 16px;
+            color: #171717;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            background-color: #4da6ff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Floating effect */
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        .sidebar a:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced floating effect on hover */
+            transform: translateY(-2px);
+        }
+
+        .logout {
+            position: absolute;
+            bottom: 30px;
+            width: calc(100% - 60px); /* Account for padding */
+            text-align: center;
+        }
+
+        .logout a {
+            background-color: #dc3545; /* Bootstrap danger color */
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Floating effect */
+            transition: all 0.3s ease;
+        }
+
+        .logout a i {
+            margin-right: 10px;
+        }
+
+        .logout a:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced floating effect on hover */
+            transform: translateY(-2px);
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            transition: margin-left 0.3s;
+            margin-left: 250px;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 70px;
+        }
+
+        .container.sidebar-closed {
+            margin-left: 0;
+        }

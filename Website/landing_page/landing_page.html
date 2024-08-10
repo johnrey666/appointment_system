@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Smile Dental Clinic - Landing Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="landing_page.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacts">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container1" id="home">
+        <div class="hero">
+            <img src="../../images/logo.png" alt="Logo">
+            <h1>Creative Smile Dental Clinic</h1>
+            <p class="animate__animated animate__heartBeat animate_slower animate_infinite">Keep Smiling!</p>
+            <a href="../LogIn.html" class="cta-button">Get Started</a>
+        </div>
+    </div>
+    <div class="container2" id="about">
+        <h3 class="as_title"> ABOUT US </h3>
+    <div class="container main-content-wrapper">
+        <div class="main-content text-center">
+            <div class="mb-4">
+                <h5>Welcome to Our Clinic</h5>
+                <p>We are dedicated to providing you with the best dental care in a comfortable and friendly environment. Explore your dashboard to manage your appointments, view medical records, and more.</p>
+            </div>
+        </div>
+        <div class="main-content text-center">
+            <div>
+                <h5>Our Services</h5>
+                <p>From routine check-ups to advanced dental treatments, we offer a wide range of services to meet all your dental needs.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="chatbot-icon" onclick="toggleChatbot()">
+        <i class="fas fa-comment-alt"></i>
+    </div>
+
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header">
+            <h5 style="color: white;">Ask a Question</h5>
+        </div>
+        <div class="chatbot-body">
+            <ul class="list-group">
+                <li class="list-group-item" onclick="displayAnswer('What are your office hours?')">What are your office hours?</li>
+                <li class="list-group-item" onclick="displayAnswer('How do I schedule an appointment?')">How do I schedule an appointment?</li>
+                <li class="list-group-item" onclick="displayAnswer('What services do you offer?')">What services do you offer?</li>
+                <li class="list-group-item" onclick="displayAnswer('Do you accept my insurance?')">Do you accept my insurance?</li>
+                <li class="list-group-item" onclick="displayAnswer('What should I expect during my first visit?')">What should I expect during my first visit?</li>
+            </ul>
+        </div>
+        <div class="chatbot-footer mt-3">
+            <p><strong>Answer:</strong></p>
+            <p id="chatbot-answer"></p>
+        </div>
+    </div>
+
+
+  <!-- Services Section -->
+<div class="container3" id="services">
+    <h3 class="text-center" style="font-weight: 700;">Services We Offer</h3>
+    <div class="container3-2">
+    <!-- Restorative Services -->
+    <div class="service-category">
+        <h3>Restorative:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" data-title="Tooth Filling" data-description="A procedure to restore a decayed tooth to its normal shape and function.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tooth service-icon"></i>
+                        <h5 class="card-title">Tooth Filling</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Inlay / Onlay" data-description="A restorative treatment used to repair moderately damaged teeth or fillings.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tooth service-icon"></i>
+                        <h5 class="card-title">Inlay / Onlay</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Endodontics Services -->
+    <div class="service-category">
+        <h3>Endodontics:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" data-title="Root Canal Treatment" data-description="A treatment to remove infected pulp from inside the tooth and seal it to prevent further infection.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-syringe service-icon"></i>
+                        <h5 class="card-title">Root Canal Treatment</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Orthodontics Services -->
+    <div class="service-category">
+        <h3>Orthodontics:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" data-title="Metal Braces" data-description="Traditional braces made of high-grade stainless steel to straighten teeth.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-teeth service-icon"></i>
+                        <h5 class="card-title">Metal Braces</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Ceramic Braces" data-description="Braces made of clear ceramic material, making them less noticeable.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-teeth service-icon"></i>
+                        <h5 class="card-title">Ceramic Braces</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Self-Ligating Braces" data-description="Braces that use a sliding mechanism to hold the wire, requiring fewer adjustments.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-teeth service-icon"></i>
+                        <h5 class="card-title">Self-Ligating Braces</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Retainers" data-description="Devices used to maintain the position of teeth after orthodontic treatment.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-teeth service-icon"></i>
+                        <h5 class="card-title">Retainers</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Oral Surgery Services -->
+    <div class="service-category">
+        <h3>Oral Surgery:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" data-title="Tooth Extraction" data-description="The removal of a tooth from its socket in the bone.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-teeth service-icon"></i>
+                        <h5 class="card-title">Tooth Extraction</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Surgery of Impacted Tooth" data-description="Surgery to remove teeth that have not erupted into the mouth properly.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-teeth service-icon"></i>
+                        <h5 class="card-title">Surgery of Impacted Tooth</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Frenectomy" data-description="Surgical removal of a frenulum, a small fold of tissue.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-syringe service-icon"></i>
+                        <h5 class="card-title">Frenectomy</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Periodontics Services -->
+    <div class="service-category">
+        <h3>Periodontics:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" data-title="Deep Scaling" data-description="A cleaning procedure that reaches below the gumline to remove plaque and tartar.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tooth service-icon"></i>
+                        <h5 class="card-title">Deep Scaling</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Gingivectomy" data-description="The surgical removal of gum tissue to treat gum disease or improve the appearance of the gums.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-tooth service-icon"></i>
+                        <h5 class="card-title">Gingivectomy</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prosthodontics Services -->
+    <div class="service-category">
+        <h3>Prosthodontics:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" data-title="Porcelain Crown" data-description="A crown made from porcelain that covers and protects a tooth.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-crown service-icon"></i>
+                        <h5 class="card-title">Porcelain Crown</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Zirconia Crown" data-description="A crown made from zirconium dioxide, known for its strength and durability.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-crown service-icon"></i>
+                        <h5 class="card-title">Zirconia Crown</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cosmetic Dentistry Services -->
+    <div class="service-category">
+        <h3>Cosmetic Dentistry:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card" data-title="Teeth Whitening" data-description="A procedure to lighten the color of your teeth.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-smile service-icon"></i>
+                        <h5 class="card-title">Teeth Whitening</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Veneers / Laminates" data-description="Thin shells of porcelain or composite resin that cover the front surface of teeth.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-smile service-icon"></i>
+                        <h5 class="card-title">Veneers / Laminates</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Flexible Denture" data-description="A type of removable partial denture made from a softer, flexible material.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-smile service-icon"></i>
+                        <h5 class="card-title">Flexible Denture</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" data-title="Complete Denture" data-description="A removable appliance that replaces all of the teeth in the upper or lower jaw.">
+                    <div class="card-body text-center">
+                        <i class="fas fa-smile service-icon"></i>
+                        <h5 class="card-title">Complete Denture</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="serviceModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="serviceDescription"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div id="contacts" class="contact">
+        <p><i class="fas fa-phone"></i> 0970-156-7163 / 0967-351-3328</p>
+        <p><i class="fab fa-facebook"></i><a href="https://www.facebook.com/CSDCTabacoBranch" target="_blank" style="color: #004080; text-decoration: none;">Creative Smile Dental Clinic Tabaco Branch</a></p>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Creative Smile Dental. All rights reserved.</p>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="landing_page.js"></script>
+</body>
+</html>

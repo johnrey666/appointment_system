@@ -5,6 +5,15 @@ body {
     padding: 0;
 }
 
+.current{
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    background-color: #2876c4 !important;
+}
+
+.logout a:hover {
+    background-color: #a92431 !important; /* Bootstrap danger color */
+}
 .navbar {
     background-color: #f0f8ff;
     padding: 10px 20px;
@@ -78,6 +87,11 @@ body {
     cursor: pointer;
     border-radius: 20px;
     text-decoration: none;
+}
+
+.sidebar a:hover {
+    background-color: #3399ff;
+    color: white;
 }
 
 .sidebar a i {

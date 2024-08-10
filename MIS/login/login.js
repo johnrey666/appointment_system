@@ -4,9 +4,9 @@ function togglePassword() {
     var toggleButton = document.querySelector(".toggle-password");
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
-        toggleButton.src = "../Images/show.png";
+        toggleButton.src = "../../Images/show.png";
     } else {
         passwordInput.type = "password";
-        toggleButton.src = "../Images/hide.png";
+        toggleButton.src = "../../Images/hide.png";
     }
 }

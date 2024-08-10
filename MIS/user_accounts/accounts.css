@@ -10,6 +10,16 @@ body {
     background-color: #f0f8ff;
     color: #333;
 }
+
+.current{
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    background-color: #2876c4 !important;
+}
+
+.logout a:hover {
+    background-color: #a92431 !important; /* Bootstrap danger color */
+}
 .sidebar {
     background-color: #cce6ff;
     width: 15%;
@@ -158,4 +168,10 @@ p, h1, h2, h3, h4, h5{
 
 .logout a i {
     margin-right: 10px;
+}
+
+.edit-icon{
+    font-size: 24px;
+    color: blue;
+    background: transparent;
 }

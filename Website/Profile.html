@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Profile - Dental Clinic</title>
-    <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Creative Smile Dental Clinic - Profile</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f8ff; /* Very light blue background */
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,264 +17,455 @@
             min-height: 100vh;
         }
 
-        .container {
+        .navbar {
+            background-color: #f0f8ff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
             display: flex;
-            flex: 1;
-            transition: margin-left 0.3s; /* Smooth transition for sidebar */
-            margin-left: 0; /* Default position for main content */
+            align-items: center;
+        }
+
+        .navbar img {
+            width: 80px;
+            margin-right: 10px;
+        }
+
+        .navbar h2 {
+            display: inline;
+            font-size: 24px;
+            margin-right: auto;
+            font-weight: 900;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .navbar .burger-icon {
+            font-size: 24px;
+            cursor: pointer;
+            color: #004080;
+            display: block;
+            z-index: 1050;
         }
 
         .sidebar {
-            background-color: #8ac3f8;
-            padding: 20px;
+            background-color: #cce6ff;
+            width: 250px; /* Adjusted width for larger screens */
+            padding: 30px;
             box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            border: 1px solid lightblue;
+            border-radius: 10px;
             position: fixed;
-            height: 100%;
-            width: 250px;
-            overflow-y: auto;
-            transition: transform 1s; /* Smooth transition for sidebar */
+            top: 60px;
             left: 0;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            transition: transform 0.3s ease;
         }
 
         .sidebar.closed {
-            transform: translateX(-240px); /* Move sidebar out of view */
-        }
-
-        .sidebar .img-container {
-            text-align: center;
-            margin-bottom: 20px;
+            transform: translateX(-100%);
         }
 
         .sidebar img {
-            width: 100px;
-            height: 100px;
+            display: block;
+            margin: 0 auto 10px;
+            width: 140px !important;
+            height: 140px !important;
             border-radius: 50%;
-            object-fit: cover;
-            cursor: pointer;
-            border: 3px solid #ffffff; /* White border for the profile image */
+            border: 3px solid lightblue;
         }
 
-        .sidebar h5 {
-            margin-top: 10px;
-            color: #ffffff;
-            font-size: 18px;
+        .sidebar .admin-label {
+            text-align: center;
+            font-size: 16px;
+            color: #171717;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .sidebar a {
-            display: block;
+            display: flex;
+            align-items: center;
+            width: 100%;
             padding: 10px 20px;
             margin-bottom: 10px;
             background-color: #4da6ff;
-            color: #ffffff;
+            border: none;
+            color: white;
             font-size: 16px;
-            text-align: center;
-            border-radius: 5px;
+            cursor: pointer;
+            border-radius: 20px;
             text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Floating effect */
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
         }
 
         .sidebar a:hover {
-            background-color: #007bff;
-            transform: scale(1.05); /* Slightly enlarge on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced floating effect on hover */
+            transform: translateY(-2px);
         }
 
-        .main-content {
-            padding: 20px;
-            flex: 1;
-            margin-left: 400px; /* Space for sidebar */
-            width: 100%;
-       
-
-        }
-
-        .card-body {
-            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
-            border-radius: 8px; /* Rounded corners */
-            padding: 20px; /* Padding inside the card body */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow for depth */
-        }
-
-        .card-title {
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: #333; /* Darker text for better readability */
-        }
-
-        .card-text {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .list-group-item {
-            background-color: #f9f9f9; /* Light background for list items */
-            border: none; /* Remove default border */
-            padding: 10px 15px; /* Padding inside list items */
-            border-radius: 8px; /* Rounded corners */
-            margin-bottom: 10px; /* Space between items */
-        }
-
-        .list-group-item:nth-child(even) {
-            background-color: #f1f1f1; /* Alternating row colors */
-        }
-
-        .list-group-item strong {
-            color: #333; /* Darker text for labels */
-        }
-
-        @media (max-width: 767px) {
-            .container {
-                flex-direction: column;
-            }}
-
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center content */
-            background-color: #ffffff;
-            padding: 15px 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            position: relative; /* Ensure the burger icon is positioned correctly */
-        }
-
-        .header .burger-icon {
+        .logout {
             position: absolute;
-            left: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: #333333;
-        }
-
-        .header .date-time {
+            bottom: 30px;
+            width: calc(100% - 60px); /* Account for padding */
             text-align: center;
         }
 
-        .header .date-time h1 {
-            margin: 0;
-            font-size: 24px;
-            color: #333333;
+        .logout a {
+            background-color: #dc3545; /* Bootstrap danger color */
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Floating effect */
+            transition: all 0.3s ease;
         }
 
-        .header .date-time p {
-            margin: 0;
+        .logout a i {
+            margin-right: 10px;
+        }
+
+        .logout a:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced floating effect on hover */
+            transform: translateY(-2px);
+        }
+
+        .container {
+            display: flex;
+            flex: 1;
+            transition: margin-left 0.3s;
+            margin-left: 250px;
+            flex-direction: column;
+            padding: 20px;
+            margin-top: 70px;
+            background-color: #f0f8ff;
+        }
+
+        .container.sidebar-closed {
+            margin-left: 0;
+        }
+
+        .profile-container {
+            width: 100%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        .profile-pic-container {
+            position: relative;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-pic-container img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid lightblue;
+            cursor: pointer;
+            object-fit: cover;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #4da6ff;
+            color: white;
+            border-radius: 20px;
+            margin: 0 10px 10px 10px;
             font-size: 16px;
-            color: #666666;
+            flex: 1;
+            text-align: center;
         }
 
-        .card-body {
-            background-color: rgba(255, 255, 255, 0.8); /* Light white background with some transparency */
-            border-radius: 5%; /* Rounded corners */
-            padding: 20px; /* Padding inside the card body */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow for depth */
-           
+        .tab.active {
+            background-color: #3c8dce;
         }
 
-        .card-title {
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .about-section, .records-section {
+            padding: 20px;
+            border: 1px solid #cce6ff;
+            border-radius: 10px;
+            background-color: #e6f3ff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .about-section p, .records-section p {
+            margin: 5px 0;
+        }
+
+        .btn {
+            background-color: #4da6ff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 20px;
+            text-decoration: none;
+            padding: 10px 20px;
             margin-top: 10px;
-            font-size: 18px;
+            display: inline-block;
         }
 
-        .img-container {
-         
-            border-radius: 8px; /* Rounded corners for the container */
-         
+        .btn:hover {
+            background-color: #3c8dce;
         }
 
         @media (max-width: 767px) {
             .container {
-                flex-direction: column;
+                margin-left: 0;
+                padding: 15px;
             }
-            .sidebar {
-                width: 100%;
-                height: 100%;
-                transform: translateX(-100%); /* Hide sidebar by default on mobile */
+
+            .profile-pic-container {
+                width: 180px;
+                height: 180px;
             }
-            .sidebar.open {
-                transform: translateX(0); /* Show sidebar when open */
+
+            .tab {
+                padding: 8px 10px;
+                margin: 5px;
+                font-size: 14px;
             }
-            .main-content {
-                margin-left: 0; /* Adjust content margin on mobile */
+
+            .profile-container {
+                padding: 35px;
             }
+
+            .about-section, .records-section {
+                padding: 15px;
+            }
+
+            .sidebar img {
+                display: block;
+                margin: 0 auto 10px;
+                width: 140px !important;
+                height: 140px !important;
+                border-radius: 50%;
+                border: 3px solid lightblue;
+                margin-top: 30px;
+            }
+
+            .navbar h2 {
+            display: inline;
+            font-size: 14px;
+            margin-right: auto;
+            font-weight: 1000;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 10px;
+        }
+
+        .navbar img {
+            width: 90px;
+            margin-right: 10px;
+        }
+
+        .sidebar {
+            z-index: 1;
+        }
+        }
+
+        .current {
+            transition: transform 0.3s ease;
+            transform: scale(1.1);
+            background-color: #2876c4 !important;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <span class="burger-icon" id="burger-icon">&#9776;</span>
-        <div class="date-time">
-            <h1 id="current-date">Loading...</h1>
-            <p id="current-time">Loading...</p>
+    <nav class="navbar">
+        <i class="fas fa-bars burger-icon" onclick="toggleSidebar()"></i>
+        <img src="../Images/logo.png" alt="Creative Smile Dental Clinic Logo">
+        <h2>Creative Smile Dental Clinic</h2>
+    </nav>
+    <div class="sidebar" id="sidebar">
+        <img class="profile-pic" src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t39.30808-6/409622360_3439685513009179_4980470032259130782_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE-FcMteXupY9W5eCz8O-SrG1pb2-0qZWcbWlvb7SplZ9oU1pBk84DeP35G9ankM8Ov4tOy3pZ7jTQU1smv2u7w&_nc_ohc=8iT5vkGVoG8Q7kNvgHvivBn&_nc_zt=23&_nc_ht=scontent.fmnl13-1.fna&oh=00_AYC9v0hfmiflBLbY0e89AGmy1FkYRoV9eVGMjlZLtumG2g&oe=66BBA2D9" alt="User">
+        <div class="admin-label">Paolo Marana</div>
+        <a href="DashboardP.html"><i class="fas fa-home"></i> Home</a>
+        <a href="Profile.html" class="current"><i class="fas fa-user"></i> Profile</a>
+        <a href="Appointments.html"><i class="fas fa-calendar-alt"></i> Appointment</a>
+        <a href="Billing.html"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="teeth_chart/teeth_chart.html"><i class="fas fa-tooth"></i> Tooth Chart</a>
+        <div class="logout">
+            <a href="../login/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
     </div>
     <div class="container">
-        <div class="sidebar" id="sidebar">
-            <div class="img-container">
-                <img id="patient-image" src="../Images/default.png" onclick="document.getElementById('image-upload').click()">
-                <input type="file" id="image-upload" accept="image/*" style="display: none;" onchange="displayImage(this)">
-                <h5>John Doe</h5>
+        <div class="profile-container">
+            <div class="profile-pic-container">
+                <img id="mainProfilePic" src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t39.30808-6/409622360_3439685513009179_4980470032259130782_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE-FcMteXupY9W5eCz8O-SrG1pb2-0qZWcbWlvb7SplZ9oU1pBk84DeP35G9ankM8Ov4tOy3pZ7jTQU1smv2u7w&_nc_ohc=8iT5vkGVoG8Q7kNvgHvivBn&_nc_zt=23&_nc_ht=scontent.fmnl13-1.fna&oh=00_AYC9v0hfmiflBLbY0e89AGmy1FkYRoV9eVGMjlZLtumG2g&oe=66BBA2D9" alt="User" onclick="document.getElementById('fileInput').click();">
+                <input type="file" id="fileInput" style="display: none;" accept="image/*" onchange="updateProfilePic(event)">
             </div>
-            <a href="DashboardP.html">Home</a>
-            <a style="background-color: #007bff; transform: scale(1.05);" href="Profile.html">Profile</a>
-            <a href="Appointments.html">Appointments</a>
-            <a href="Billing.html">Billing</a>
-            <a href="Tooth.html">Tooth Chart</a>
-            <div class="footer"><br><br><br><br>
-              <a style="background-color: rgba(255, 0, 0, 0.753);" href="LogIn.html">Log Out</a>
-          </div>
-        </div>
-        <div class="main-content">
-            <div>
-                <div class="card-body">
-                    <h5 class="card-title">Patient Profile</h5>
-                    <p class="card-text"><strong>About:</strong> John is a long-time patient at our clinic, known for his friendly demeanor and positive attitude towards dental care.</p>
-                    <h6>Schedule</h6>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>Next Appointment:</strong> July 28, 2024 - 10:00 AM</li>
-                        <li class="list-group-item"><strong>Previous Appointment:</strong> June 15, 2024 - 2:00 PM</li>
-                        <li class="list-group-item"><strong>Next Cleaning:</strong> October 5, 2024 - 11:00 AM</li>
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('information')">Information</div>
+                <div class="tab" onclick="showTab('records')">Records</div>
+            </div>
+            <div id="information" class="tab-content active">
+                <div class="about-section">
+                    <p><strong>Name:</strong> Paolo Marana</p>
+                    <p><strong>Gender:</strong> Male</p>
+                    <p><strong>Contact Number:</strong> 0970-156-7163</p>
+                    <p><strong>Birthdate:</strong> January 1, 1990</p>
+                    <button class="btn" onclick="openEditModal()">Edit</button>
+                </div>
+            </div>
+            <div id="records" class="tab-content">
+                <div class="records-section">
+                    <p><strong>Last Visit:</strong> June 10, 2024</p>
+                    <p><strong>Upcoming Visit:</strong> July 22, 2024</p>
+                    <p><strong>Treatment History:</strong></p>
+                    <ul>
+                        <li>June 10, 2024 - Cleaning</li>
+                        <li>April 15, 2024 - Filling</li>
+    
                     </ul>
-                    <h6 class="mt-3">Records</h6>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item"><strong>Last Cleaning:</strong> March 12, 2024</li>
-                        <li class="list-group-item"><strong>Treatment:</strong> Orthodontics - Braces (Completed)</li>
-                        <li class="list-group-item"><strong>Notes:</strong> Excellent progress with braces, next check-up in 3 months.</li>
-                    </ul>
+                    <button class="btn" onclick="downloadRecords()">Download Records</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS and dependencies -->
+    <!-- Edit Information Modal -->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label for="editName">Name</label>
+                            <input type="text" class="form-control" id="editName" value="Paolo Marana">
+                        </div>
+                        <div class="form-group">
+                            <label for="editGender">Gender</label>
+                            <select class="form-control" id="editGender">
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editContact">Contact Number</label>
+                            <input type="text" class="form-control" id="editContact" value="0970-156-7163">
+                        </div>
+                        <div class="form-group">
+                            <label for="editBirthdate">Birthdate</label>
+                            <input type="date" class="form-control" id="editBirthdate" value="1990-01-01">
+                        </div>
+                        <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
-        function updateDateTime() {
-            const now = new Date();
-            const optionsDate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Manila' };
-            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Manila' };
-            const date = now.toLocaleDateString('en-US', optionsDate);
-            const time = now.toLocaleTimeString('en-US', optionsTime);
-            document.getElementById('current-date').textContent = date.toUpperCase();
-            document.getElementById('current-time').textContent = time;
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('closed');
+            document.querySelector('.container').classList.toggle('sidebar-closed');
         }
 
-        function displayImage(input) {
-            if (input.files && input.files[0]) {
+        function updateProfilePic(event) {
+            const file = event.target.files[0];
+            if (file) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    document.getElementById('patient-image').src = e.target.result;
-                };
-                reader.readAsDataURL(input.files[0]);
+                    document.getElementById('mainProfilePic').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
             }
         }
 
-        document.getElementById('burger-icon').addEventListener('click', function() {
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            document.querySelector(`.tab[onclick="showTab('${tabId}')"]`).classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function downloadRecords() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text("Patient Records", 20, 20);
+            doc.text("Name: Paolo Marana", 20, 30);
+            doc.text("Last Visit: June 10, 2024", 20, 40);
+            doc.text("Upcoming Visit: July 22, 2024", 20, 50);
+            doc.text("Treatment History:", 20, 60);
+            doc.text("  - June 10, 2024: Cleaning", 20, 70);
+            doc.text("  - April 15, 2024: Filling", 20, 80);
+            doc.text("  - February 20, 2024: Checkup", 20, 90);
+
+            doc.save('Patient_Records.pdf');
+        }
+
+        function openEditModal() {
+            $('#editModal').modal('show');
+        }
+
+        function saveChanges() {
+            // Here you can add logic to save the changes, for example, send data to the server.
+            $('#editModal').modal('hide');
+            document.getElementById('information').querySelector('p:nth-child(1) strong').nextSibling.textContent = ' ' + document.getElementById('editName').value;
+            document.getElementById('information').querySelector('p:nth-child(2) strong').nextSibling.textContent = ' ' + document.getElementById('editGender').value;
+            document.getElementById('information').querySelector('p:nth-child(3) strong').nextSibling.textContent = ' ' + document.getElementById('editContact').value;
+            document.getElementById('information').querySelector('p:nth-child(4) strong').nextSibling.textContent = ' ' + document.getElementById('editBirthdate').value;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
             const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('closed');
+            sidebar.classList.remove('closed');
         });
 
-        setInterval(updateDateTime, 1000);
-        updateDateTime();
+
+  
     </script>
 </body>
 </html>

@@ -1,0 +1,314 @@
+body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #333;
+    background-color: #f0f9ff; /* Light blue background */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+    max-height: 100vh;
+}
+
+.hero {
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #a3c2f7, #f0f9ff); /* Gradient from light blue to white */
+    max-width: 100%;
+    max-height: 100vh; /* Full viewport height */
+    box-sizing: border-box;
+}
+
+.container1 {
+    position: relative;
+}
+
+.hero img {
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    color: #004080; /* Dark blue for contrast */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow */
+    font-weight: bold; /* Makes the text bolder */
+    letter-spacing: 0.05em; /* Slightly increases space between letters */
+    text-transform: uppercase; /* Converts text to uppercase for a distinctive look */
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #555;
+    margin: 10px 0;
+}
+
+.cta-button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #004080; /* Dark blue button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+.cta-button:hover {
+    background-color: #003366; /* Darker blue on hover */
+}
+
+.contact {
+    padding: 20px;
+    text-align: center;
+    background-color: #e6f2ff; /* Light blue background */
+}
+
+.contact p {
+    font-size: 1.1em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.contact i {
+    margin-right: 10px;
+    color: #004080; /* Dark blue for icons */
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #004080; /* Matching footer color */
+    color: #fff;
+}
+
+.navbar {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+    color: #333 !important;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #3b3b3b84 !important;
+}
+
+.main-content-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    flex-direction: row;
+}
+
+.main-content {
+    background-color: white;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 12px 17px rgba(34, 34, 34, 0.1);
+    margin: 1rem;
+    width: 45%;
+    max-width: 400px;
+    transition: transform 0.5s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.main-content:hover {
+    transform: scale(1.10); /* Slightly enlarge the card on hover */
+    cursor: pointer;
+}
+
+h5 {
+    color: #004080;
+}
+
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgb(69, 101, 246);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 1;
+}
+
+.chatbot-icon:hover {
+    background-color: #577bff;
+    color: #ffffff;
+}
+
+.chatbot {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    max-width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 1;
+}
+
+.chatbot-header {
+    background-color: #0056b3;
+    color: white !important;
+    padding: 0.5rem;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+
+.chatbot-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.chatbot-footer {
+    text-align: center;
+}
+
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    background-color: #f1f1f1;
+}
+
+.chatbot-footer p {
+    background-color: #e9ecef;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.container2 {
+    position: relative;
+    background-color: white;
+    max-height: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 2px solid lightblue;
+    border-bottom: 2px solid lightblue;
+    margin-top: 65px;
+    transform: skewY(-5deg); /* Apply skew transformation */
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.container2 > * {
+    transform: skewY(5deg); /* Counteract the skew of the container */
+}
+
+.as_title {
+    position: absolute;
+    margin-bottom: 30%;
+    font-weight: 700;
+}
+
+/* Services Section Styles */
+.services-section {
+    background-color: #f0f9ff;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.services-section h2 {
+    color: #007bff;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.service-category {
+    margin-bottom: 20px;
+}
+
+.service-category h3 {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card {
+    margin-bottom: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+
+.card-body p {
+    color: #555;
+}
+
+.card-body h5 {
+    margin-top: 10px;
+}
+
+.card-body .service-icon {
+    font-size: 40px;
+    color: #007bff;
+}
+
+.modal-body p {
+    color: #555;
+}
+
+.container3 {
+    background: linear-gradient(to bottom, #f0f9ff, #a3c2f7);
+    padding: 50px;
+    margin-top: 100px;
+}
+
+.container3-2 {
+    border: 1px solid lightblue;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: white;
+    margin: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    display: flexbox;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
