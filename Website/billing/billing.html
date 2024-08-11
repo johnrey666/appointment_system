@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="billing.css">
+</head>
+<body>
+    <nav class="navbar">
+        <i class="fas fa-bars burger-icon" onclick="toggleSidebar()"></i>
+        <img src="../../Images/logo.png" alt="Creative Smile Dental Clinic Logo">
+        <h2>Creative Smile Dental Clinic</h2>
+    </nav>
+    <div class="sidebar" id="sidebar">
+        <img class="profile-pic" src="https://scontent.fmnl13-1.fna.fbcdn.net/v/t39.30808-6/409622360_3439685513009179_4980470032259130782_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE-FcMteXupY9W5eCz8O-SrG1pb2-0qZWcbWlvb7SplZ9oU1pBk84DeP35G9ankM8Ov4tOy3pZ7jTQU1smv2u7w&_nc_ohc=8iT5vkGVoG8Q7kNvgHvivBn&_nc_zt=23&_nc_ht=scontent.fmnl13-1.fna&oh=00_AYC9v0hfmiflBLbY0e89AGmy1FkYRoV9eVGMjlZLtumG2g&oe=66BBA2D9" alt="User">
+        <div class="admin-label">Paolo Marana</div>
+        <a href="../dashboard/dashboard.html"><i class="fas fa-home"></i> Home</a>
+        <a href="../profile/profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="Billing.html" class="current"><i class="fas fa-file-invoice-dollar"></i> Billing</a>
+        <a href="../teeth_chart/teeth_chart.html"><i class="fas fa-tooth"></i> Tooth Chart</a>
+        <div class="logout">
+            <a href="../login/login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="invoice-box" id="invoice-box">
+            <table cellpadding="0" cellspacing="0">
+                <tr class="top">
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td class="title">
+                                    <img src="../../Images/logo.png" alt="Company logo" style="width: 100%; max-width: 200px;" />
+                                </td>
+                                <td>
+                                    <b>Invoice #: 123</b><br />
+                                    Created: January 1, 2021<br />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="information">
+                    <td colspan="2">
+                        <table>
+                            <tr>
+                                <td>
+                                    <b>Your Company Name</b><br />
+                                    Creative Smile Dental Clinic<br />
+                                    Tabaco Branch
+                                </td>
+                                <td>
+                                    <b>Client Name</b><br />
+                                    67890 Cloudy Blvd<br />
+                                    Cloudycity, CA 67890
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr class="heading">
+                    <td>Payment Method</td>
+                    <td>Transaction #</td>
+                </tr>
+                <tr class="details">
+                    <td>GCash</td>
+                    <td>1000</td>
+                </tr>
+                <tr class="heading">
+                    <td>Item</td>
+                    <td>Price</td>
+                </tr>
+                <tr class="item">
+                    <td>Website design</td>
+                    <td>₱300.00</td>
+                </tr>
+                <tr class="item">
+                    <td>Hosting (3 months)</td>
+                    <td>₱75.00</td>
+                </tr>
+                <tr class="item last">
+                    <td>Domain name (1 year)</td>
+                    <td>₱10.00</td>
+                </tr>
+                <tr class="total">
+                    <td></td>
+                    <td>Total: ₱385.00</td>
+                </tr>
+            </table>
+        </div>
+        <button class="btn-save" onclick="saveInvoice()">Save</button>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="jsPDF-2.5.1/dist/jspdf.umd.min.js"></script>
+    <!-- Ensure the correct jsPDF script is loaded -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+
+    <script src="billing.js">  </script>
+</body>
+</html>

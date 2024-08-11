@@ -17,6 +17,7 @@
             flex-direction: column;
             min-height: 100vh;
         }
+
         .navbar {
             background-color: #f0f8ff;
             padding: 10px 20px;
@@ -29,10 +30,12 @@
             display: flex;
             align-items: center;
         }
+
         .navbar img {
             width: 80px;
             margin-right: 10px;
         }
+
         .navbar h2 {
             display: inline;
             font-size: 24px;
@@ -40,6 +43,7 @@
             font-weight: 900;
             font-family: Georgia, 'Times New Roman', Times, serif;
         }
+
         .sidebar {
             background-color: #cce6ff;
             width: 250px;
@@ -54,9 +58,11 @@
             overflow-y: auto;
             transition: transform 0.3s ease;
         }
+
         .sidebar.closed {
             transform: translateX(-100%);
         }
+
         .sidebar img {
             display: block;
             margin: 0 auto 10px;
@@ -65,6 +71,7 @@
             border-radius: 50%;
             border: 3px solid lightblue;
         }
+
         .sidebar .admin-label {
             text-align: center;
             font-size: 16px;
@@ -72,6 +79,7 @@
             margin-bottom: 20px;
             font-weight: 600;
         }
+
         .sidebar a {
             display: flex;
             align-items: center;
@@ -88,19 +96,23 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
+
         .sidebar a i {
             margin-right: 10px;
         }
+
         .sidebar a:hover {
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             transform: translateY(-2px);
         }
+
         .logout {
             position: absolute;
             bottom: 30px;
             width: calc(100% - 60px);
             text-align: center;
         }
+
         .logout a {
             background-color: #dc3545;
             padding: 10px 20px;
@@ -113,13 +125,16 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
+
         .logout a i {
             margin-right: 10px;
         }
+
         .logout a:hover {
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             transform: translateY(-2px);
         }
+
         .container {
             display: flex;
             flex: 1;
@@ -129,13 +144,16 @@
             padding: 20px;
             margin-top: 70px;
         }
+
         .container.sidebar-closed {
             margin-left: 0;
         }
+
+        /* Enhanced Invoice Box Styles */
         .invoice-box {
             background-color: #ffffff;
             padding: 40px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             width: 100%;
             max-width: 800px;
@@ -145,90 +163,117 @@
             color: #333333;
             margin: 0 auto;
         }
+
         .invoice-box table {
             width: 100%;
             line-height: inherit;
             text-align: left;
+            border-spacing: 0 15px;
+            border-collapse: separate;
         }
+
         .invoice-box table td {
             padding: 10px;
             vertical-align: top;
+            background-color: #f9f9f9;
+            border-radius: 8px;
         }
+
         .invoice-box table tr td:nth-child(2) {
             text-align: right;
         }
+
         .invoice-box table tr.top table td {
             padding-bottom: 20px;
+            background-color: transparent;
         }
+
         .invoice-box table tr.top table td.title {
             font-size: 45px;
             line-height: 45px;
             color: #333333;
         }
+
         .invoice-box table tr.information table td {
             padding-bottom: 40px;
+            background-color: transparent;
         }
+
         .invoice-box table tr.heading td {
             background: #67adf3;
+            color: white;
             border-bottom: 1px solid #ddd;
             font-weight: bold;
         }
+
         .invoice-box table tr.details td {
             padding-bottom: 20px;
         }
+
         .invoice-box table tr.item td {
             border-bottom: 1px solid #eee;
         }
+
         .invoice-box table tr.item.last td {
             border-bottom: none;
         }
+
         .invoice-box table tr.total td:nth-child(2) {
             border-top: 2px solid #f2f3f3;
             font-weight: bold;
+            background-color: #e0f7ff;
         }
+
         .btn-save {
             display: block;
             margin: 20px auto;
-            padding: 10px 20px;
+            padding: 12px 25px;
             background-color: #4da6ff;
             color: white;
             border: none;
-            border-radius: 20px;
+            border-radius: 30px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             text-align: center;
             text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
+
         .btn-save:hover {
             background-color: #3c8dce;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
+
         @media (max-width: 767px) {
             .container {
                 flex-direction: column;
                 margin-left: 0;
             }
+
             .invoice-box {
                 padding: 20px;
             }
+
             .invoice-box table td {
                 padding: 8px;
             }
 
             .navbar h2 {
-    display: inline;
-    font-size: 14px;
-    margin-right: auto;
-    font-weight: 1000;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-top: 10px;
-}
+                display: inline;
+                font-size: 14px;
+                margin-right: auto;
+                font-weight: 1000;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                margin-top: 10px;
+            }
         }
 
-        .current{
-    transition: transform 0.3s ease;
-    transform: scale(1.1);
-    background-color: #2876c4 !important;
-}
+        .current {
+            transition: transform 0.3s ease;
+            transform: scale(1.1);
+            background-color: #2876c4 !important;
+        }
     </style>
 </head>
 <body>
@@ -260,7 +305,7 @@
                                     <img src="../Images/logo.png" alt="Company logo" style="width: 100%; max-width: 200px;" />
                                 </td>
                                 <td>
-                                    Invoice #: 123<br />
+                                    <b>Invoice #: 123</b><br />
                                     Created: January 1, 2021<br />
                                 </td>
                             </tr>
@@ -272,12 +317,12 @@
                         <table>
                             <tr>
                                 <td>
-                                    Your Company Name<br />
+                                    <b>Your Company Name</b><br />
                                     Creative Smile Dental Clinic<br />
                                     Tabaco Branch
                                 </td>
                                 <td>
-                                    Client Name<br />
+                                    <b>Client Name</b><br />
                                     67890 Cloudy Blvd<br />
                                     Cloudycity, CA 67890
                                 </td>
@@ -320,11 +365,9 @@
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="jsPDF-2.5.1/dist/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <script src="jsPDF-2.5.1/dist/jspdf.umd.min.js"></script>
     <!-- Ensure the correct jsPDF script is loaded -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
 
